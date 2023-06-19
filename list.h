@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/13 16:58:35 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/19 13:38:15 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 # define LIST_H
 
 /* libraries used */
+# include "libft/libft.h"
 # include <unistd.h>
 # include <stdio.h>
+# include <limits.h>
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int	value;
 	int	index;
 	struct s_stack	*next;
 }				t_stack;
+
+#endif
