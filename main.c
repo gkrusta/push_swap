@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/20 15:29:58 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/20 19:02:13 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,59 @@ void	ft_exit(int status)
 	exit (status);
 }
 
-/* filling the stack a */
-char	**ft_locate(t_stack **a, int argc, char **argv)
+/* add index to the each element */
+void	ft_addindex(t_list **fill_a)
 {
-	int		i;
-	t_stack	**fill_a;
+	int		index;
+	t_list	*current;
 
-	if (argc == 2)
-		a = ft_split(argv[1], ' ');
-	else
-		a = &argv[1];
-	while (argv[i] != '\0')
+	index = 0;
+	current = *fill_a;
+	while (current != NULL)
 	{
-		fill_a = ft_lstadd_back(a, argv[i]);
-		i++;
+		current->index = index;
+		current = current->next;
+		index++;
 	}
-	if (argc == 2)
-		free (argv);
-	return (fill_a);
 }
 
+/* filling the stack a */
+t_list	**ft_locate(t_list **a, int argc, char **argv)
+{
+	int		i;
+	t_list	*fill_a;
+	char	**new;
+
+	i = 0;
+	if (argc == 2)
+		new = ft_split(argv[1], ' ');
+	else
+	{
+		new = argv;
+		i = 1;
+	}
+	while (argv[i])
+	{
+		fill_a = ft_lstnew(argv[i]);
+		ft_lstadd_back(a, fill_a);
+		i++;
+	}
+	ft_addindex(a);
+	if (argc == 2)
+		free (argv);
+	return (a);
+}
+
+/* declare 2 stacks */
 int	main(int argc, char **argv)
 {
-	t_stack	**a;
-	t_stack	**b;
+	t_list	**a;
+	t_list	**b;
 
 	if (argc < 2)
 		return (-1);
-	a = (t_stack **)malloc(sizeof(t_stack));
-	b = (t_stack **)malloc(sizeof(t_stack));
-	ft_locate(a, argc, argv);
+	a = (t_list **)malloc(sizeof(t_list));
+	b = (t_list **)malloc(sizeof(t_list));
+	a = ft_locate(a, argc, argv);
+	ft_valid_nb(a, argc, argv);
 }
