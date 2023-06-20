@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/19 17:40:07 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/20 15:29:58 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,24 @@ void	ft_exit(int status)
 	exit (status);
 }
 
-char	**ft_fill_stack(t_stack *cur, int argc, char **argv)
+/* filling the stack a */
+char	**ft_locate(t_stack **a, int argc, char **argv)
 {
+	int		i;
+	t_stack	**fill_a;
+
 	if (argc == 2)
-		cur->split = ft_split(argv[1], ' ');
-	
+		a = ft_split(argv[1], ' ');
+	else
+		a = &argv[1];
+	while (argv[i] != '\0')
+	{
+		fill_a = ft_lstadd_back(a, argv[i]);
+		i++;
+	}
+	if (argc == 2)
+		free (argv);
+	return (fill_a);
 }
 
 int	main(int argc, char **argv)
@@ -39,7 +52,9 @@ int	main(int argc, char **argv)
 	t_stack	**a;
 	t_stack	**b;
 
-/* 	a = malloc(sizeof() * );
-	b = malloc(sizeof() * ); */
-
+	if (argc < 2)
+		return (-1);
+	a = (t_stack **)malloc(sizeof(t_stack));
+	b = (t_stack **)malloc(sizeof(t_stack));
+	ft_locate(a, argc, argv);
 }
