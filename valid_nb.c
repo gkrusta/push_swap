@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/20 19:02:13 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/21 15:51:49 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,25 +73,34 @@ int	only_numbers(char **argv)
 	int		j;
 
 	av = argv;
+	i = 0;
+	if (argc == 2)
+		new = ft_split(argv[1], ' ');
+	else
+	{
+		new = argv;
+		i = 1;
+	}
 	while (av[i])
 	{
-		if (!argv[i])
-			return (0)
+		if (overflow())
 		while (av[i][j])
 		{
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }
 
 int	ft_valid_nb(t_list **a, int argc, char **argv)
 {
-	if (a_is_sorted(a) == 1 || only_numbers(argv) == 0)
+
+	if (a_is_sorted(a) || )
 	{
 		free (a);
 		free (b);
 		ft_exit (1);
 	}
-	else if ()
+	else if (only_numbers(a, argc, argv))
 }

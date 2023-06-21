@@ -6,8 +6,8 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:11:38 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/19 13:11:53 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/20 17:43:34 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <list.h>
+#include "list.h"

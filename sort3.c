@@ -6,15 +6,15 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:45:20 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/19 13:46:32 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/20 17:46:33 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
-void	sort_3(t_stack **lst_a)
+void	sort_3(t_list **lst_a)
 {
-	t_stack	*a;
+	t_list	*a;
 	int	min_nb;
 	int	min_next_nb;
 
