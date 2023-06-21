@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/20 19:02:13 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/21 15:52:06 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ t_list	**ft_locate(t_list **a, int argc, char **argv)
 		new = argv;
 		i = 1;
 	}
-	while (argv[i])
+	while (new[i])
 	{
-		fill_a = ft_lstnew(argv[i]);
+		fill_a = ft_lstnew(ft_atoi(new[i]));
 		ft_lstadd_back(a, fill_a);
 		i++;
 	}
@@ -82,4 +82,5 @@ int	main(int argc, char **argv)
 	b = (t_list **)malloc(sizeof(t_list));
 	a = ft_locate(a, argc, argv);
 	ft_valid_nb(a, argc, argv);
+
 }
