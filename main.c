@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/21 15:52:06 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 12:30:27 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	ft_exit(int status)
 }
 
 /* add index to the each element */
-void	ft_addindex(t_list **fill_a)
+void	ft_addindex(t_stack **fill_a)
 {
 	int		index;
-	t_list	*current;
+	t_stack	*current;
 
 	index = 0;
 	current = *fill_a;
@@ -44,10 +44,10 @@ void	ft_addindex(t_list **fill_a)
 }
 
 /* filling the stack a */
-t_list	**ft_locate(t_list **a, int argc, char **argv)
+void	*ft_locate(t_stack *a, int argc, char **argv)
 {
 	int		i;
-	t_list	*fill_a;
+	t_stack	*fill_a;
 	char	**new;
 
 	i = 0;
@@ -55,9 +55,10 @@ t_list	**ft_locate(t_list **a, int argc, char **argv)
 		new = ft_split(argv[1], ' ');
 	else
 	{
-		new = argv;
+		new = &argv[1];
 		i = 1;
 	}
+	ft_valid_nb(new);
 	while (new[i])
 	{
 		fill_a = ft_lstnew(ft_atoi(new[i]));
@@ -66,21 +67,28 @@ t_list	**ft_locate(t_list **a, int argc, char **argv)
 	}
 	ft_addindex(a);
 	if (argc == 2)
-		free (argv);
-	return (a);
+	// ft_free
+		free (new);
 }
 
 /* declare 2 stacks */
 int	main(int argc, char **argv)
 {
-	t_list	**a;
-	t_list	**b;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc < 2)
 		return (-1);
-	a = (t_list **)malloc(sizeof(t_list));
-	b = (t_list **)malloc(sizeof(t_list));
-	a = ft_locate(a, argc, argv);
-	ft_valid_nb(a, argc, argv);
-
+	a = (t_stack *)malloc(sizeof(t_stack));
+	b = (t_stack *)malloc(sizeof(t_stack));
+	if (!b || !a)
+		return (1);
+	ft_locate(a, argc, argv);
+	if (a_is_sorted(a))
+	{
+		free (a);
+		free (b);
+		exit ;
+	}
+	return (0);
 }

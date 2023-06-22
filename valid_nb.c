@@ -6,12 +6,13 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/21 15:51:49 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 12:48:16 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
+/* cheking if the numberes are type int */
 int	overflow(char *str)
 {
 	long	n;
@@ -50,11 +51,12 @@ int	find_doubles(char **argv)
 	return (1);
 }
 
-int	a_is_sorted(t_list **lst)
+/* checking if the numbers are already in order */
+int	a_is_sorted(t_stack *lst)
 {
-	t_list	*head;
+	t_stack	*head;
 
-	head = *lst;
+	head = lst;
 	if (!lst)
 		return (-1);
 	while (head->next != NULL)
@@ -66,6 +68,7 @@ int	a_is_sorted(t_list **lst)
 	return (1);
 }
 
+/* checking if the elements consist of digits and 1 possible sign */
 int	only_numbers(char **argv)
 {
 	char	**av;
@@ -74,18 +77,17 @@ int	only_numbers(char **argv)
 
 	av = argv;
 	i = 0;
-	if (argc == 2)
-		new = ft_split(argv[1], ' ');
-	else
-	{
-		new = argv;
-		i = 1;
-	}
 	while (av[i])
 	{
-		if (overflow())
+		if (overflow(av[i]) == 1)
+			return (0);
+		j = 0;
+		if ((av[i][j] == '+' || av[i][j] == '-') && av[i][j + 1] != '\0')
+			j++;
 		while (av[i][j])
 		{
+			if (!ft_isdigit(av[i][j]))
+				ft_exit(1);
 			j++;
 		}
 		i++;
@@ -93,14 +95,12 @@ int	only_numbers(char **argv)
 	return (1);
 }
 
-int	ft_valid_nb(t_list **a, int argc, char **argv)
+/*  */
+int	ft_valid_nb(char **new)
 {
-
-	if (a_is_sorted(a) || )
-	{
-		free (a);
-		free (b);
+	if (only_numbers(new) != 1)
+		ft_exit(1);
+	if (find_doubles(new) != 1)
 		ft_exit (1);
-	}
-	else if (only_numbers(a, argc, argv))
+	return (1);
 }
