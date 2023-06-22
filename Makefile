@@ -6,7 +6,7 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/06/22 16:24:24 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/06/22 17:12:19 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,19 +28,19 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C libft/ all
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS) libft/libft.a
+	make -C libft1/ all
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS) libft1/libft.a
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
-	make -C libft/ clean
+	make -C libft1/ clean
 
 fclean: clean
 	$(RM) $(NAME)
-	make -C libft/ fclean
+	make -C libft1/ fclean
 
 re: fclean all
 
