@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 16:46:34 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 18:05:21 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,14 @@ void	ft_locate(t_list *a, int argc, char **argv)
 }
 
 /* depending on how many elements are, chose a sorting algorithm */
-/* void	ft_simple_or_radix(t_list, *a, t_list *b)
+void	ft_small_sort(t_list, *a, t_list *b)
 {
-	if (ft_lstsize(a) > 1)
-		simple_sort()
-} */
+	if (ft_lstsize(a) == 2)
+	{
+		if (a->value > a->next->value)
+			sa(a);
+	}
+}
 
 /* declare 2 stacks */
 int	main(int argc, char **argv)
@@ -103,6 +106,7 @@ int	main(int argc, char **argv)
 		free (b);
 		return (0);
 	}
-/* 	ft_simple_or_radix(a, b); */
+	if (ft_lstsize(a) > 6)
+		ft_small_sort(a, b);
 	return (0);
 }

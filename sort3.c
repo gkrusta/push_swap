@@ -6,11 +6,13 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:45:20 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 16:13:57 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 18:05:21 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
+
+
 
 /* void	sort_3(t_list *lst_a)
 {
