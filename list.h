@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 16:04:28 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 17:44:53 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void	ft_exit(int status);
 void	ft_free_stack(char **argv);
 
 /* instructions */
-int	swap(t_list	*lst);
+void	swap(t_list	*lst);
+void	sa(t_list *a);
+void	sb(t_list *b);
 
 /* sort */
 void	sort_3(t_list **lst_a);
