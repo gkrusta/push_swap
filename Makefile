@@ -6,7 +6,7 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/06/19 13:19:56 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/06/22 16:24:24 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C libft/ all
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS) libft/ libft.a
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS) libft/libft.a
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

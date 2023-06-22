@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 13:54:27 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 16:42:26 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	find_doubles(char **argv)
 	int		j;
 	char	*tmp;
 
+	i = 0;
 	while (argv[i])
 	{
 		tmp = ft_strdup(argv[i]);
@@ -39,13 +40,13 @@ int	find_doubles(char **argv)
 				j++;
 			else if (ft_strcmp(argv[i], argv[j]) == 0)
 			{
-				ft_free_stack(argv[i]);
+				ft_free_stack(argv);
 				ft_exit(1);
 			}
 			else
 				j++;
 		}
-		ft_free_stack(argv[i]);
+		ft_free_stack(argv);
 		i++;
 	}
 	return (1);
@@ -95,7 +96,7 @@ int	only_numbers(char **argv)
 	return (1);
 }
 
-/*  */
+/* checking is numbers are valid */
 int	ft_valid_nb(char **new)
 {
 	if (only_numbers(new) != 1)

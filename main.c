@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 13:57:35 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 16:46:34 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ void	ft_free_stack(char **argv)
 /* is called when recieves 1 as an argument indicating an error */
 void	ft_exit(int status)
 {
-	write (1, "Error\n", 6);
+	write (1, "Error >(\n", 9);
 	exit (status);
 }
 
 /* add index to the each element */
-void	ft_addindex(t_list **fill_a)
+void	ft_addindex(t_list *a)
 {
 	int		index;
 	t_list	*current;
 
 	index = 0;
-	current = *fill_a;
+	current = a;
 	while (current != NULL)
 	{
 		current->index = index;
@@ -44,7 +44,7 @@ void	ft_addindex(t_list **fill_a)
 }
 
 /* filling the stack a */
-void	*ft_locate(t_list *a, int argc, char **argv)
+void	ft_locate(t_list *a, int argc, char **argv)
 {
 	int		i;
 	t_list	*fill_a;
@@ -58,12 +58,14 @@ void	*ft_locate(t_list *a, int argc, char **argv)
 		new = &argv[1];
 		i = 1;
 	}
-	ft_valid_nb(new);
-	while (new[i])
+	if (ft_valid_nb(new))
 	{
-		fill_a = ft_lstnew(ft_atoi(new[i]));
-		ft_lstadd_back(&a, fill_a);
-		i++;
+		while (new[i])
+		{
+			fill_a = ft_lstnew(ft_atoi(new[i]));
+			ft_lstadd_back(&a, fill_a);
+			i++;
+		}
 	}
 	ft_addindex(a);
 	if (argc == 2)
@@ -71,11 +73,12 @@ void	*ft_locate(t_list *a, int argc, char **argv)
 }
 
 /* depending on how many elements are, chose a sorting algorithm */
-void	ft_simple_or_radix(t_list, *a, t_list *b)
+/* void	ft_simple_or_radix(t_list, *a, t_list *b)
 {
-	if (ft_lstsize(*a) > 1)
+	if (ft_lstsize(a) > 1)
 		simple_sort()
-}
+} */
+
 /* declare 2 stacks */
 int	main(int argc, char **argv)
 {
@@ -89,17 +92,17 @@ int	main(int argc, char **argv)
 	if (!b || !a)
 		return (1);
 	ft_locate(a, argc, argv);
-	while (value->next != NULL)
+	while (a->next)
 	{
 		printf ("before sorting: %d", a->value);
-		a = a->value->next;
+		a = a->next;
 	}
-	if (a_is_sorted(a))
+	if (a_is_sorted(a) == 1)
 	{
 		free (a);
 		free (b);
 		return (0);
 	}
-	ft_simple_or_radix(a, b);
+/* 	ft_simple_or_radix(a, b); */
 	return (0);
 }
