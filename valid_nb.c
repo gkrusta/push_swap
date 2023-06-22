@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 12:48:16 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 13:54:27 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int	find_doubles(char **argv)
 }
 
 /* checking if the numbers are already in order */
-int	a_is_sorted(t_stack *lst)
+int	a_is_sorted(t_list *lst)
 {
-	t_stack	*head;
+	t_list	*head;
 
 	head = lst;
 	if (!lst)

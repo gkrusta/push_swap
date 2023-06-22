@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 11:34:13 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 13:53:19 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <stdio.h>
 # include <limits.h>
 
-typedef struct t_stack
+/* typedef struct s_stack
 {
 	int	value;
 	int	index;
 	struct s_stack	*next;
-}				t_stack;
+}				t_stack; */
 
 #endif

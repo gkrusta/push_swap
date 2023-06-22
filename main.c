@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 12:30:27 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/22 13:57:35 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	ft_exit(int status)
 }
 
 /* add index to the each element */
-void	ft_addindex(t_stack **fill_a)
+void	ft_addindex(t_list **fill_a)
 {
 	int		index;
-	t_stack	*current;
+	t_list	*current;
 
 	index = 0;
 	current = *fill_a;
@@ -44,10 +44,10 @@ void	ft_addindex(t_stack **fill_a)
 }
 
 /* filling the stack a */
-void	*ft_locate(t_stack *a, int argc, char **argv)
+void	*ft_locate(t_list *a, int argc, char **argv)
 {
 	int		i;
-	t_stack	*fill_a;
+	t_list	*fill_a;
 	char	**new;
 
 	i = 0;
@@ -62,33 +62,44 @@ void	*ft_locate(t_stack *a, int argc, char **argv)
 	while (new[i])
 	{
 		fill_a = ft_lstnew(ft_atoi(new[i]));
-		ft_lstadd_back(a, fill_a);
+		ft_lstadd_back(&a, fill_a);
 		i++;
 	}
 	ft_addindex(a);
 	if (argc == 2)
-	// ft_free
-		free (new);
+		ft_free_stack(new);
 }
 
+/* depending on how many elements are, chose a sorting algorithm */
+void	ft_simple_or_radix(t_list, *a, t_list *b)
+{
+	if (ft_lstsize(*a) > 1)
+		simple_sort()
+}
 /* declare 2 stacks */
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_list	*a;
+	t_list	*b;
 
 	if (argc < 2)
 		return (-1);
-	a = (t_stack *)malloc(sizeof(t_stack));
-	b = (t_stack *)malloc(sizeof(t_stack));
+	a = (t_list *)malloc(sizeof(t_list));
+	b = (t_list *)malloc(sizeof(t_list));
 	if (!b || !a)
 		return (1);
 	ft_locate(a, argc, argv);
+	while (value->next != NULL)
+	{
+		printf ("before sorting: %d", a->value);
+		a = a->value->next;
+	}
 	if (a_is_sorted(a))
 	{
 		free (a);
 		free (b);
-		exit ;
+		return (0);
 	}
+	ft_simple_or_radix(a, b);
 	return (0);
 }
