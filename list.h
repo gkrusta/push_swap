@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 17:44:53 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/23 16:52:15 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIST_H
 
 /* libraries used */
-# include "libft/libft.h"
+# include "libft1/libft.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
@@ -36,15 +36,16 @@ void	ft_free_stack(char **argv);
 void	swap(t_list	*lst);
 void	sa(t_list *a);
 void	sb(t_list *b);
+void	ss(t_list *a, t_list *b);
 
 /* sort */
 void	sort_3(t_list **lst_a);
 
 /* valid number */
-int	ft_valid_nb(char **new);
+int	ft_valid_nb(char **new, int argc);
 int	only_numbers(char **argv);
 int	a_is_sorted(t_list *lst);
-int	find_doubles(char **argv);
+int	find_doubles(char **argv, int i, int nb);
 int	overflow(char *str);
 
 #endif

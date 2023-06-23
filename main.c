@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 18:05:21 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/23 17:15:53 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ void	ft_locate(t_list *a, int argc, char **argv)
 	else
 	{
 		new = &argv[1];
-		i = 1;
 	}
-	if (ft_valid_nb(new))
+	if (ft_valid_nb(new, argc))
 	{
+		a->value = ft_atoi(new[i]);
+		i++;
 		while (new[i])
 		{
 			fill_a = ft_lstnew(ft_atoi(new[i]));
@@ -73,14 +74,18 @@ void	ft_locate(t_list *a, int argc, char **argv)
 }
 
 /* depending on how many elements are, chose a sorting algorithm */
-void	ft_small_sort(t_list, *a, t_list *b)
+/* void	ft_small_sort(t_list, *a, t_list *b)
 {
 	if (ft_lstsize(a) == 2)
 	{
 		if (a->value > a->next->value)
 			sa(a);
 	}
-}
+	if (ft_lstsize(a) == 3)
+	{
+		if
+	}
+} */
 
 /* declare 2 stacks */
 int	main(int argc, char **argv)
@@ -97,7 +102,7 @@ int	main(int argc, char **argv)
 	ft_locate(a, argc, argv);
 	while (a->next)
 	{
-		printf ("before sorting: %d", a->value);
+		printf ("before sorting: %d\n", a->value);
 		a = a->next;
 	}
 	if (a_is_sorted(a) == 1)
@@ -106,7 +111,7 @@ int	main(int argc, char **argv)
 		free (b);
 		return (0);
 	}
-	if (ft_lstsize(a) > 6)
-		ft_small_sort(a, b);
+/* 	if (ft_lstsize(a) > 6)
+		ft_small_sort(a, b); */
 	return (0);
 }

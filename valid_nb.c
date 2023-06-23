@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/22 16:42:26 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/23 16:54:02 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,17 @@ int	overflow(char *str)
 
 	n = ft_long_atoi(str);
 	if (n >= INT_MIN && n <= INT_MAX)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 /* checking if none of the numbers repeat */
-int	find_doubles(char **argv)
+int	find_doubles(char **argv, int i, int nb)
 {
-	int		i;
-	int		j;
-	char	*tmp;
-
-	i = 0;
+	i++;
 	while (argv[i])
 	{
-		tmp = ft_strdup(argv[i]);
-		j = 0;
-		while (argv[i])
-		{
-			if (i == j)
-				j++;
-			else if (ft_strcmp(argv[i], argv[j]) == 0)
-			{
-				ft_free_stack(argv);
-				ft_exit(1);
-			}
-			else
-				j++;
-		}
-		ft_free_stack(argv);
+		if (ft_atoi(argv[i]) == nb)
+			return (0);
 		i++;
 	}
 	return (1);
@@ -87,8 +70,8 @@ int	only_numbers(char **argv)
 			j++;
 		while (av[i][j])
 		{
-			if (!ft_isdigit(av[i][j]))
-				ft_exit(1);
+			if (ft_isdigit(av[i][j]) != 1)
+				return (0);
 			j++;
 		}
 		i++;
@@ -97,11 +80,28 @@ int	only_numbers(char **argv)
 }
 
 /* checking is numbers are valid */
-int	ft_valid_nb(char **new)
+int	ft_valid_nb(char **new, int argc)
 {
+	int	i;
+
+	i = 0;
 	if (only_numbers(new) != 1)
+	{
+		if (argc == 2)
+			ft_free_stack(new);
+		printf("onlynb\n");
 		ft_exit(1);
-	if (find_doubles(new) != 1)
-		ft_exit (1);
+	}
+	while (new[i])
+	{
+		if (find_doubles(new, i, ft_atoi(new[i])) != 1)
+		{
+			if (argc == 2)
+				ft_free_stack(new);
+			printf("finddob\n");
+			ft_exit (1);
+		}
+		i++;
+	}
 	return (1);
 }

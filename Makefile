@@ -6,11 +6,11 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/06/22 17:12:19 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/06/23 16:01:38 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pushswap.a
+NAME = pushswap
 
 PUSHSWAP = ar rcs
 
