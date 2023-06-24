@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/23 16:52:15 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/24 18:51:20 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,20 @@ void	ft_addindex(t_list *a);
 void	ft_exit(int status);
 void	ft_free_stack(char **argv);
 
-/* instructions */
+/* swap instructions */
 void	swap(t_list	*lst);
 void	sa(t_list *a);
 void	sb(t_list *b);
 void	ss(t_list *a, t_list *b);
 
+/* rotate instructions */
+void	ra(t_list *a);
+void	rra(t_list *a);
+
 /* sort */
-void	sort_3(t_list **lst_a);
+int	get_min(t_list *a);
+int	get_next_min(t_list *a, int min);
+void	sort_3(t_list *lst_a);
 
 /* valid number */
 int	ft_valid_nb(char **new, int argc);

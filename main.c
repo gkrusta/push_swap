@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/23 17:15:53 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/24 19:18:13 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_locate(t_list *a, int argc, char **argv)
 }
 
 /* depending on how many elements are, chose a sorting algorithm */
-/* void	ft_small_sort(t_list, *a, t_list *b)
+void	ft_small_sort(t_list *a)
 {
 	if (ft_lstsize(a) == 2)
 	{
@@ -83,9 +83,9 @@ void	ft_locate(t_list *a, int argc, char **argv)
 	}
 	if (ft_lstsize(a) == 3)
 	{
-		if
+		sort_3(a);
 	}
-} */
+}
 
 /* declare 2 stacks */
 int	main(int argc, char **argv)
@@ -100,18 +100,36 @@ int	main(int argc, char **argv)
 	if (!b || !a)
 		return (1);
 	ft_locate(a, argc, argv);
-	while (a->next)
+
+	t_list *current_a = a;
+	while (current_a)
 	{
-		printf ("before sorting: %d\n", a->value);
-		a = a->next;
+		printf("before sorting: %d\n", current_a->value);
+		current_a = current_a->next;
 	}
+
+	t_list *current_a_index = a;
+	while (current_a_index)
+	{
+		printf("index: %d\n", current_a_index->index);
+		current_a_index = current_a_index->next;
+	}
+
 	if (a_is_sorted(a) == 1)
 	{
 		free (a);
 		free (b);
 		return (0);
 	}
-/* 	if (ft_lstsize(a) > 6)
-		ft_small_sort(a, b); */
+	if (ft_lstsize(a) < 6)
+	{
+		ft_small_sort(a);
+		        t_list *current_sorted_a = a;
+        while (current_sorted_a)
+        {
+            printf("after sorting: %d\n", current_sorted_a->value);
+            current_sorted_a = current_sorted_a->next;
+        }
+	}
 	return (0);
 }

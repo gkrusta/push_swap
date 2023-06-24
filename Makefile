@@ -6,7 +6,7 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/06/23 16:01:38 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/06/24 18:24:44 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = pushswap
 
 PUSHSWAP = ar rcs
 
-SRCS =  main.c get_index.c instructions.c \
+SRCS =  main.c rotate_instructions.c swap_instructions.c \
 		sort3.c valid_nb.c 
 
 OBJS = $(SRCS:.c=.o)
@@ -23,7 +23,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-RM = rm -f
+RM = rm -f	
 
 all: $(NAME)
 
