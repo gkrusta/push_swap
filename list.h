@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/24 18:51:20 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/26 17:38:04 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	sb(t_list *b);
 void	ss(t_list *a, t_list *b);
 
 /* rotate instructions */
-void	ra(t_list *a);
-void	rra(t_list *a);
+void	ra(t_list **a);
+void	rra(t_list **a);
 
 /* sort */
 int	get_min(t_list *a);

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/24 19:18:13 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/26 18:58:06 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	main(int argc, char **argv)
 		printf("index: %d\n", current_a_index->index);
 		current_a_index = current_a_index->next;
 	}
-
+	printf("\n");
 	if (a_is_sorted(a) == 1)
 	{
 		free (a);
@@ -124,12 +124,12 @@ int	main(int argc, char **argv)
 	if (ft_lstsize(a) < 6)
 	{
 		ft_small_sort(a);
-		        t_list *current_sorted_a = a;
-        while (current_sorted_a)
-        {
-            printf("after sorting: %d\n", current_sorted_a->value);
-            current_sorted_a = current_sorted_a->next;
-        }
+		t_list *current_sorted_a = a;
+		while (current_sorted_a)
+		{
+			printf("after sorting: %d\n", current_sorted_a->value);
+			current_sorted_a = current_sorted_a->next;
+		}
 	}
 	return (0);
 }

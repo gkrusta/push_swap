@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:45:20 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/24 19:10:48 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/26 17:39:24 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_min(t_list *a)
 	int		min;
 
 	current = a;
-	min = INT_MIN;
+	min = INT_MAX;
 
 	while (current != NULL)
 	{
@@ -35,7 +35,7 @@ int	get_next_min(t_list *a, int min)
 	int		next_min;
 
 	current = a;
-	next_min = INT_MIN;
+	next_min = INT_MAX;
 
 	while (current != NULL)
 	{
@@ -55,20 +55,20 @@ void	sort_3(t_list *lst_a)
 	a = lst_a;
 	min = get_min(lst_a);
 	min_next = get_next_min(lst_a, min);
-	if (a->index == min && a->next->index != min_next)
+	if (a->value == min && a->next->value != min_next)
 	{
-		rra(lst_a);
+		rra(&lst_a);
 		sa(lst_a);
 	}
-	else if (a->index == min_next && a->next->index == min)
+	else if (a->value == min_next && a->next->value == min)
 		sa(lst_a);
-	else if (a->index == min_next && a->next->index != min)
-		rra(lst_a);
-	else if (a->next->index == min && a->next->next->index == min_next)
-		ra(lst_a);
+	else if (a->value == min_next && a->next->value != min)
+		rra(&lst_a);
+	else if (a->next->value == min && a->next->next->value == min_next)
+		ra(&lst_a);
 	else
 	{
-		ra(lst_a);
+		ra(&lst_a);
 		sa(lst_a);
 	}
 }
