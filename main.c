@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/26 18:58:06 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/27 19:37:22 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,18 @@ void	ft_locate(t_list *a, int argc, char **argv)
 }
 
 /* depending on how many elements are, chose a sorting algorithm */
-void	ft_small_sort(t_list *a)
+void	ft_small_sort(t_list **a, t_list **b)
 {
-	if (ft_lstsize(a) == 2)
+	if (ft_lstsize(*a) == 2)
 	{
-		if (a->value > a->next->value)
-			sa(a);
+		if ((*a)->value > (*a)->next->value)
+			sa(*a);
 	}
-	if (ft_lstsize(a) == 3)
-	{
+	else if (ft_lstsize(*a) == 3)
 		sort_3(a);
+	else if (ft_lstsize(*a) == 4)
+	{
+		
 	}
 }
 
@@ -108,12 +110,12 @@ int	main(int argc, char **argv)
 		current_a = current_a->next;
 	}
 
-	t_list *current_a_index = a;
+/* 	t_list *current_a_index = a;
 	while (current_a_index)
 	{
 		printf("index: %d\n", current_a_index->index);
 		current_a_index = current_a_index->next;
-	}
+	} */
 	printf("\n");
 	if (a_is_sorted(a) == 1)
 	{
@@ -123,7 +125,7 @@ int	main(int argc, char **argv)
 	}
 	if (ft_lstsize(a) < 6)
 	{
-		ft_small_sort(a);
+		ft_small_sort(&a, &b);
 		t_list *current_sorted_a = a;
 		while (current_sorted_a)
 		{
