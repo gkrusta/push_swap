@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/26 17:38:04 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/27 19:17:29 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	rra(t_list **a);
 /* sort */
 int	get_min(t_list *a);
 int	get_next_min(t_list *a, int min);
-void	sort_3(t_list *lst_a);
+void	sort_3(t_list **lst_a);
+void	sort_4(t_list **lst_a, t_list **lst_b);
 
 /* valid number */
 int	ft_valid_nb(char **new, int argc);

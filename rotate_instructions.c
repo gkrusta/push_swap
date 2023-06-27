@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:11:38 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/26 19:04:17 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/27 13:19:10 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,7 @@ void	rra(t_list **a)
 	}
 	old_head->next = NULL;
 	new_head->next = *a;
-	**a = *new_head;
-/* 		t_list *current_sorted_a = *a;
-		while (current_sorted_a)
-		{
-			printf("after sorting: %d\n", current_sorted_a->value);
-			current_sorted_a = current_sorted_a->next;
-		} */
+	*a = new_head;
 	printf("rra\n");
 }
 
