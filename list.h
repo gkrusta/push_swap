@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/27 19:17:29 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/30 18:40:31 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 /* in main */
 void	ft_locate(t_list *a, int argc, char **argv);
 void	ft_addindex(t_list *a);
+t_list	*get_next(t_list **a);
 void	ft_exit(int status);
 void	ft_free_stack(char **argv);
 
@@ -39,12 +40,20 @@ void	sb(t_list *b);
 void	ss(t_list *a, t_list *b);
 
 /* rotate instructions */
+void	rotate(t_list **lst);
 void	ra(t_list **a);
+void	rb(t_list **b);
+void	rr(t_list **a, t_list **b);
+
+/* reverse rotate instructions */
+void	reverse_rotate(t_list **lst);
 void	rra(t_list **a);
+void	rrb(t_list **b);
+void	rrr(t_list **a, t_list **b);
 
 /* sort */
-int	get_min(t_list *a);
-int	get_next_min(t_list *a, int min);
+int		get_min(t_list *a);
+int		get_next_min(t_list *a, int min);
 void	sort_3(t_list **lst_a);
 void	sort_4(t_list **lst_a, t_list **lst_b);
 

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/27 19:37:22 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/06/30 18:40:08 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,44 @@ void	ft_exit(int status)
 	exit (status);
 }
 
-/* add index to the each element */
+/* to get to next value for index */
+t_list	*get_next(t_list **a)
+{
+	t_list	*cur;
+	t_list	*min;
+	int		has_min;
+
+	cur = *a;
+	min = NULL;
+	first_t = 0;
+	if (cur)
+	{
+		while (cur->next != NULL) // - 1 means that element doesn't have an index yet
+		{
+			if (cur->index == -1 && (cur->value < min->value || first_t == 0))
+			{
+				first_t = 1;
+				min = cur;
+			}
+			cur = cur->next;
+		}
+	}
+	return (min);
+}
+
+/* add index to the each element in ascending order*/
 void	ft_addindex(t_list *a)
 {
 	int		index;
 	t_list	*current;
 
 	index = 0;
-	current = a;
+	current = get_next(&a);
 	while (current != NULL)
 	{
 		current->index = index;
-		current = current->next;
 		index++;
+		current = get_next(&a);
 	}
 }
 
