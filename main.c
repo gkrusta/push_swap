@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/01 20:28:53 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/01 21:01:26 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,12 +133,12 @@ int	main(int argc, char **argv)
 		current_a = current_a->next;
 	}
 
-/* 	t_list *current_a_index = a;
+	t_list *current_a_index = a;
 	while (current_a_index)
 	{
 		printf("index: %d\n", current_a_index->index);
 		current_a_index = current_a_index->next;
-	} */
+	}
 	printf("\n");
 	if (a_is_sorted(a) == 1)
 	{
