@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/30 18:40:31 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/01 20:16:01 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ void	sa(t_list *a);
 void	sb(t_list *b);
 void	ss(t_list *a, t_list *b);
 
+/* push instructions */
+int		push(t_list **stack_from, t_list **stack_to);
+int		pa(t_list **stack_a, t_list **stack_b);
+int		pb(t_list **stack_a, t_list **stack_b);
+
 /* rotate instructions */
 void	rotate(t_list **lst);
 void	ra(t_list **a);
@@ -55,13 +60,13 @@ void	rrr(t_list **a, t_list **b);
 int		get_min(t_list *a);
 int		get_next_min(t_list *a, int min);
 void	sort_3(t_list **lst_a);
-void	sort_4(t_list **lst_a, t_list **lst_b);
+void	sort_4(t_list **a, t_list **b);
 
 /* valid number */
-int	ft_valid_nb(char **new, int argc);
-int	only_numbers(char **argv);
-int	a_is_sorted(t_list *lst);
-int	find_doubles(char **argv, int i, int nb);
-int	overflow(char *str);
+int		ft_valid_nb(char **new, int argc);
+int		only_numbers(char **argv);
+int		a_is_sorted(t_list *lst);
+int		find_doubles(char **argv, int i, int nb);
+int		overflow(char *str);
 
 #endif

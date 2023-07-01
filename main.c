@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/30 18:40:08 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/01 20:28:53 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list	*get_next(t_list **a)
 {
 	t_list	*cur;
 	t_list	*min;
-	int		has_min;
+	int		first_t;
 
 	cur = *a;
 	min = NULL;
@@ -109,9 +109,7 @@ void	ft_small_sort(t_list **a, t_list **b)
 	else if (ft_lstsize(*a) == 3)
 		sort_3(a);
 	else if (ft_lstsize(*a) == 4)
-	{
-		
-	}
+		sort_4(a, b);
 }
 
 /* declare 2 stacks */
@@ -151,6 +149,7 @@ int	main(int argc, char **argv)
 	if (ft_lstsize(a) < 6)
 	{
 		ft_small_sort(&a, &b);
+		printf("\n");
 		t_list *current_sorted_a = a;
 		while (current_sorted_a)
 		{

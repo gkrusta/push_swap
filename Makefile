@@ -6,7 +6,7 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/06/30 18:22:48 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/07/01 20:24:22 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@ NAME = pushswap
 
 PUSHSWAP = ar rcs
 
-SRCS =  main.c rotate_instructions.c swap_instructions.c \
-		push_instructions.c valid_nb.c sort3.c sort4.c 
+SRCS =  main.c rotate_instructions.c rev_rotate_instructions.c \
+		swap_instructions.c push_instructions.c \
+		valid_nb.c sort3.c sort4.c 
 
 OBJS = $(SRCS:.c=.o)
 
