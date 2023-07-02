@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/01 21:01:26 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/02 18:44:57 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_exit(int status)
 }
 
 /* to get to next value for index */
-t_list	*get_next(t_list **a)
+static t_list	*get_next(t_list **a)
 {
 	t_list	*cur;
 	t_list	*min;
@@ -39,9 +39,9 @@ t_list	*get_next(t_list **a)
 	first_t = 0;
 	if (cur)
 	{
-		while (cur->next != NULL) // - 1 means that element doesn't have an index yet
+		while (cur)
 		{
-			if (cur->index == -1 && (cur->value < min->value || first_t == 0))
+			if ((cur->index == -1) && (cur->value < min->value || !first_t))
 			{
 				first_t = 1;
 				min = cur;
@@ -53,18 +53,18 @@ t_list	*get_next(t_list **a)
 }
 
 /* add index to the each element in ascending order*/
-void	ft_addindex(t_list *a)
+void	ft_addindex(t_list **a)
 {
 	int		index;
 	t_list	*current;
 
-	index = 0;
-	current = get_next(&a);
-	while (current != NULL)
+	index = 1;
+	current = get_next(a);
+	while (current)
 	{
-		current->index = index;
-		index++;
-		current = get_next(&a);
+		current->index = index++;
+/* 		current = current->next; */
+		current = get_next(a);
 	}
 }
 
@@ -93,7 +93,7 @@ void	ft_locate(t_list *a, int argc, char **argv)
 			i++;
 		}
 	}
-	ft_addindex(a);
+	ft_addindex(&a);
 	if (argc == 2)
 		ft_free_stack(new);
 }
