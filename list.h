@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 17:06:30 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/05 18:32:33 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ void	rrr(t_list **a, t_list **b);
 int		get_min(t_list *a);
 int		get_next_min(t_list *a, int min);
 void	sort_3(t_list **lst_a);
-void	sort_4(t_list **a, t_list **b);
+void	sort_4(t_list **a, t_list **b, int flag);
 void	sort_5(t_list **a, t_list **b);
 
 /* valid number */
-int		ft_valid_nb(char **new, int argc);
+int		ft_valid_nb(char **new, int argc, int i);
 int		only_numbers(char **argv);
 int		a_is_sorted(t_list *lst);
 int		find_doubles(char **argv, int i, int nb);
