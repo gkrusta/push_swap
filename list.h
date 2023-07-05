@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 13:34:52 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/05 16:45:53 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@
 
 /* in main */
 void	ft_locate(t_list *a, int argc, char **argv);
-void	ft_addindex(t_list **a, int argc, char **argv);
+void	ft_addindex(t_list **a, int argc, char **argv, int saver);
+void	ft_addindex_str(t_list **a, int argc, char **argv);
 char	**ft_sort_params(int argc, char **argv, int check);
 void	ft_exit(int status);
 void	ft_free_stack(char **argv);

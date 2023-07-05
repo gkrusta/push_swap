@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 13:36:11 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/05 16:54:10 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,62 +27,7 @@ void	ft_exit(int status)
 	exit (status);
 }
 
-/* sort the elements in ascending order */
-char	**ft_sort_params(int argc, char **argv, int check)
-{
-	int		i;
-	int		j;
-	char	*temp;
-
-	i = check;
-	while (i < argc)
-	{
-		j = i + 1;
-		while (j < argc)
-		{
-			if (ft_atoi(argv[i]) > ft_atoi(argv[j]))
-			{
-				temp = argv[i];
-				argv[i] = argv[j];
-				argv[j] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-/* 	i = 0;
-	while (i++ < argc)
-		ft_putstr_fd(argv[i], 1); */
-	return (argv);
-}
-
-/* add index to the each element in ascending order*/
-void	ft_addindex(t_list **a, int argc, char **argv)
-{
-	int		x;
-	int		check;
-	t_list	*tmp;
-
-	tmp = *a;
-	if (argv[0] == NULL)
-		check = 1;
-	else
-		check = 0;
-	ft_sort_params(argc, argv, check);
-	printf ("addinedx  %d\n\n", tmp->value);
-	while (tmp)
-	{
-		x = check;
-		while (x < argc)
-		{
-			if (ft_atoi(argv[x]) == ((tmp)->value))
-				(tmp)->index = x;
-			x++;
-		}
-		(tmp) = (tmp)->next;
-	}
-}
-
+/* counts the argc in case the elements are pased in " " */
 int	new_argc(char **argv)
 {
 	int	i;
@@ -98,9 +43,11 @@ void	ft_locate(t_list *a, int argc, char **argv)
 {
 	int		i;
 	t_list	*fill_a;
+	int		saver;
 /* 	char	**new;
  */
 	i = 1;
+	saver = argc;
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
@@ -120,7 +67,7 @@ void	ft_locate(t_list *a, int argc, char **argv)
 			i++;
 		}
 	}
-	ft_addindex(&a, argc, argv);
+	ft_addindex(&a, argc, argv, saver);
 	if (argc == 2)
 		ft_free_stack(argv);
 }
