@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/02 18:44:57 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/05 13:36:11 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,45 +27,70 @@ void	ft_exit(int status)
 	exit (status);
 }
 
-/* to get to next value for index */
-static t_list	*get_next(t_list **a)
+/* sort the elements in ascending order */
+char	**ft_sort_params(int argc, char **argv, int check)
 {
-	t_list	*cur;
-	t_list	*min;
-	int		first_t;
+	int		i;
+	int		j;
+	char	*temp;
 
-	cur = *a;
-	min = NULL;
-	first_t = 0;
-	if (cur)
+	i = check;
+	while (i < argc)
 	{
-		while (cur)
+		j = i + 1;
+		while (j < argc)
 		{
-			if ((cur->index == -1) && (cur->value < min->value || !first_t))
+			if (ft_atoi(argv[i]) > ft_atoi(argv[j]))
 			{
-				first_t = 1;
-				min = cur;
+				temp = argv[i];
+				argv[i] = argv[j];
+				argv[j] = temp;
 			}
-			cur = cur->next;
+			j++;
 		}
+		i++;
 	}
-	return (min);
+/* 	i = 0;
+	while (i++ < argc)
+		ft_putstr_fd(argv[i], 1); */
+	return (argv);
 }
 
 /* add index to the each element in ascending order*/
-void	ft_addindex(t_list **a)
+void	ft_addindex(t_list **a, int argc, char **argv)
 {
-	int		index;
-	t_list	*current;
+	int		x;
+	int		check;
+	t_list	*tmp;
 
-	index = 1;
-	current = get_next(a);
-	while (current)
+	tmp = *a;
+	if (argv[0] == NULL)
+		check = 1;
+	else
+		check = 0;
+	ft_sort_params(argc, argv, check);
+	printf ("addinedx  %d\n\n", tmp->value);
+	while (tmp)
 	{
-		current->index = index++;
-/* 		current = current->next; */
-		current = get_next(a);
+		x = check;
+		while (x < argc)
+		{
+			if (ft_atoi(argv[x]) == ((tmp)->value))
+				(tmp)->index = x;
+			x++;
+		}
+		(tmp) = (tmp)->next;
 	}
+}
+
+int	new_argc(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+		i++;
+	return (i);
 }
 
 /* filling the stack a */
@@ -73,29 +98,31 @@ void	ft_locate(t_list *a, int argc, char **argv)
 {
 	int		i;
 	t_list	*fill_a;
-	char	**new;
-
-	i = 0;
+/* 	char	**new;
+ */
+	i = 1;
 	if (argc == 2)
-		new = ft_split(argv[1], ' ');
-	else
 	{
-		new = &argv[1];
+		argv = ft_split(argv[1], ' ');
+		argc = new_argc(argv);
+		i = 0;
 	}
-	if (ft_valid_nb(new, argc))
+/* 	else
+		new = &argv[1]; */
+	if (ft_valid_nb(argv, argc))
 	{
-		a->value = ft_atoi(new[i]);
+		a->value = ft_atoi(argv[i]);
 		i++;
-		while (new[i])
+		while (argv[i])
 		{
-			fill_a = ft_lstnew(ft_atoi(new[i]));
+			fill_a = ft_lstnew(ft_atoi(argv[i]));
 			ft_lstadd_back(&a, fill_a);
 			i++;
 		}
 	}
-	ft_addindex(&a);
+	ft_addindex(&a, argc, argv);
 	if (argc == 2)
-		ft_free_stack(new);
+		ft_free_stack(argv);
 }
 
 /* depending on how many elements are, chose a sorting algorithm */

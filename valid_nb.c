@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/06/23 16:54:02 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/05 13:26:19 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ int	only_numbers(char **argv)
 	int		j;
 
 	av = argv;
-	i = 0;
+	i = 1;
 	while (av[i])
 	{
 		if (overflow(av[i]) == 1)
 			return (0);
-		j = 0;
+		j = 1;
 		if ((av[i][j] == '+' || av[i][j] == '-') && av[i][j + 1] != '\0')
 			j++;
 		while (av[i][j])
