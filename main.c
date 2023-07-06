@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 18:19:20 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/06 15:54:38 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,15 +123,15 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	if (ft_lstsize(a) < 6)
-	{
 		ft_small_sort(&a, &b);
-		printf("\n");
-		t_list *current_sorted_a = a;
-		while (current_sorted_a)
-		{
-			printf("after sorting: %d\n", current_sorted_a->value);
-			current_sorted_a = current_sorted_a->next;
-		}
+	else
+		ft_big_sort(&a, &b, argc);
+	printf("\n");
+	t_list *current_sorted_a = a;
+	while (current_sorted_a)
+	{
+		printf("after sorting: %d\n", current_sorted_a->value);
+		current_sorted_a = current_sorted_a->next;
 	}
 	return (0);
 }
