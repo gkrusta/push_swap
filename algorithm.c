@@ -6,71 +6,108 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/06 19:38:19 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/07 14:01:30 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
-int	get_max(t_list *a, int index)
+int	get_max(t_list *a)
 {
 	int		max;
 	t_list	*lst_a;
 
-	max = 0;
+	max = INT_MIN;
 	lst_a = a;
 	while (lst_a != NULL)
 	{
 		if (lst_a->value > max)
-			max = lst_a->index;
+			max = lst_a->value;
 		lst_a = lst_a->next;
 	}
 	return (max);
 }
 
-int	ft_from_top(t_list **a)
+int	min_from_top(t_list *lst_a, int center, int start, int end)
 {
-	int	top;
-	int	center;
+	t_list	*a;
+	int		pos;
 
-	top = 0;
-	center = argc / 2;
-	while (i <= center)
+	a = *lst_a;
+	pos = 0;
+	while (pos <= center)
 	{
-		if ()
-		i++;
+		if (a->value >= start && a->value <= end)
+			return (pos);
+		a = a->next;
+		pos++;
 	}
-	return (top);
+	return (-1);
 }
 
-int	ft_from_bottom(t_list **a, int argc)
+int	min_from_bottom(t_list *lst_a, int center, int start, int end)
 {
-	int	bottom;
+	t_list	*a;
+	int		pos;
 
-	bottom = argc;
-	while ()
+	a = *lst_a;
+	pos = center * 2;// I have to change this at some point
+	while (pos > center)
 	{
-		bottom--;
+		if (a->value >= start && a->value <= end)
+			return (pos);
+		a = a->next;
+		pos--;
 	}
-	return (bottom);
+	return (-1);
+}
+
+/*  */
+void	push_to_stackb(t_list **a, t_list **b, int max_in_a)
+{
+	int	max_index;
+	int	min_index;
+
+	max_index = 
+	min_index = 
+}
+
+/* move elements using ra or rra to the top of stack A */
+void	move_to_top(t_list **a, int start, int end)
+{
+	int	dist_top;
+	int	dist_bottom;
+
+	dist_top = min_from_top(&a, center, start, end);
+	dist_bottom = min_from_bottom(&a, center, start, end);
+	if (dist_top <= dist_bottom)
+	{
+		while (dist_top > 0)
+		{
+			ra(a);
+			dist_top--;
+		}
+	}
+	else
+	{
+		while (dist_bottom > 0)
+		{
+			rra(a);
+			dist_bottom--;
+		}
+	}
 }
 
 void	srt_chunks(t_list **a, t_list **b, int start, int end)
 {
-	int	distance_top;
-	int	distance_bottom;
+	int	center;
 
-	distance_top = ft_from_top(a);
-	distance_bottom = ft_from_bottom(a);
-	if (distance_top <= distance_bottom)
+	center = argc / 2;
+	while (min_from_top(&a, center, start, end) != -1
+		|| min_from_bottom(&a, center, start, end) != -1)
 	{
-		while (distance_top != 1)
-			distance_top--;
-	}
-	else
-	{
-		while (distance_bottom != argc)
-			distance_bottom--;
+		move_to_top(a, start, end);
+		push_to_stackb(a, b, a->value);
 	}
 }
 
