@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/07 14:01:30 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/07 15:17:19 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,44 @@ int	min_from_bottom(t_list *lst_a, int center, int start, int end)
 	return (-1);
 }
 
-/*  */
-void	push_to_stackb(t_list **a, t_list **b, int max_in_a)
+/* checks if the top value of stack B is > or < than the top value of stack A */
+int	check_top_stack_b(t_list *lst_b, int top_a)
+{
+	t_list	*b;
+/* 	int		smallest; */
+	int		biggest;
+
+	b = *lst_b;
+/* 	smallest = b->value; */
+	biggest = b->value;
+	while (b->next != NULL)
+	{
+		if (top_a > b->value)
+			biggest = b->value;
+/* 		else if (top_a < b->value)
+			smallest = b->value; */
+		b = b->next;
+	}
+	if (top_a > biggest)
+		return (1);
+	else
+		return (-1);
+}
+
+/* push elements on top of the stack b */
+void	push_to_stack_b(t_list **a, t_list **b, int max_in_a)
 {
 	int	max_index;
 	int	min_index;
 
-	max_index = 
-	min_index = 
+	max_index = max_index(&b);
+	min_index = min_index(&b);
+	if (check_top_stack_b(&b, a->value))
+	{
+
+	}
+	else
+
 }
 
 /* move elements using ra or rra to the top of stack A */
@@ -98,7 +128,7 @@ void	move_to_top(t_list **a, int start, int end)
 	}
 }
 
-void	srt_chunks(t_list **a, t_list **b, int start, int end)
+void	sort_chunks(t_list **a, t_list **b, int start, int end)
 {
 	int	center;
 
@@ -107,7 +137,7 @@ void	srt_chunks(t_list **a, t_list **b, int start, int end)
 		|| min_from_bottom(&a, center, start, end) != -1)
 	{
 		move_to_top(a, start, end);
-		push_to_stackb(a, b, a->value);
+		push_to_stack_b(a, b, a->value);
 	}
 }
 
@@ -127,7 +157,7 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 	while (start <= get_max(&a))
 	{
 		end = start + size;
-		srt_chunks(a, b, start, end);
+		sort_chunks(a, b, start, end);
 		start += size;
 	}
 }

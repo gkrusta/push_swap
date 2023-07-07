@@ -6,11 +6,45 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:03:10 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 17:03:28 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/07 14:13:06 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
+
+/* finds the min index in the stack b */
+int	min_index(t_list *lst_b)
+{
+	int		i;
+	t_list	*b;
+
+	i = INT_MAX;
+	b = *lst_b;
+	while (b)
+	{
+		if (b->index < i)
+			i = b->index;
+		b = b->next;
+	}
+	return (i);
+}
+
+/* finds the max index in the stack b */
+int	max_index(t_list *lst_b)
+{
+	int		i;
+	t_list	*b;
+
+	i = INT_MIN;
+	b = *lst_b;
+	while (b)
+	{
+		if (b->index > i)
+			i = b->index;
+		b = b->next;
+	}
+	return (i);
+}
 
 /* sorts the elements in ascending order */
 char	**ft_sort_params(int argc, char **argv, int check)
