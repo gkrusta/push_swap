@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/07 15:17:19 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/07 17:56:44 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,77 +28,41 @@ int	get_max(t_list *a)
 	return (max);
 }
 
-int	min_from_top(t_list *lst_a, int center, int start, int end)
-{
-	t_list	*a;
-	int		pos;
-
-	a = *lst_a;
-	pos = 0;
-	while (pos <= center)
-	{
-		if (a->value >= start && a->value <= end)
-			return (pos);
-		a = a->next;
-		pos++;
-	}
-	return (-1);
-}
-
-int	min_from_bottom(t_list *lst_a, int center, int start, int end)
-{
-	t_list	*a;
-	int		pos;
-
-	a = *lst_a;
-	pos = center * 2;// I have to change this at some point
-	while (pos > center)
-	{
-		if (a->value >= start && a->value <= end)
-			return (pos);
-		a = a->next;
-		pos--;
-	}
-	return (-1);
-}
+ 
 
 /* checks if the top value of stack B is > or < than the top value of stack A */
-int	check_top_stack_b(t_list *lst_b, int top_a)
+/* int	check_top_stack_b(t_list *lst_b, int top_a)
 {
 	t_list	*b;
-/* 	int		smallest; */
+	int		smallest;
 	int		biggest;
 
 	b = *lst_b;
-/* 	smallest = b->value; */
+	smallest = b->value;
 	biggest = b->value;
 	while (b->next != NULL)
 	{
 		if (top_a > b->value)
 			biggest = b->value;
-/* 		else if (top_a < b->value)
-			smallest = b->value; */
+		else if (top_a < b->value)
+			smallest = b->value;
 		b = b->next;
 	}
 	if (top_a > biggest)
 		return (1);
 	else
 		return (-1);
-}
+} */
 
 /* push elements on top of the stack b */
 void	push_to_stack_b(t_list **a, t_list **b, int max_in_a)
 {
-	int	max_index;
+/* 	int	max_index;
 	int	min_index;
 
 	max_index = max_index(&b);
-	min_index = min_index(&b);
-	if (check_top_stack_b(&b, a->value))
-	{
+	min_index = min_index(&b); */
 
-	}
-	else
 
 }
 
@@ -126,6 +90,7 @@ void	move_to_top(t_list **a, int start, int end)
 			dist_bottom--;
 		}
 	}
+	pb(a, b);
 }
 
 void	sort_chunks(t_list **a, t_list **b, int start, int end)
@@ -136,9 +101,9 @@ void	sort_chunks(t_list **a, t_list **b, int start, int end)
 	while (min_from_top(&a, center, start, end) != -1
 		|| min_from_bottom(&a, center, start, end) != -1)
 	{
-		move_to_top(a, start, end);
-		push_to_stack_b(a, b, a->value);
-	}
+		move_to_top(a, b, start, end);
+/* 		push_to_stack_b(a, b, a->value);
+ */	}
 }
 
 void	ft_big_sort(t_list **a, t_list **b, int argc)
