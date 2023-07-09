@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 18:32:33 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/09 14:11:07 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@
 
 /* in main */
 void	ft_locate(t_list *a, int argc, char **argv);
-void	ft_addindex(t_list **a, int argc, char **argv, int saver);
-void	ft_addindex_str(t_list **a, int argc, char **argv);
-char	**ft_sort_params(int argc, char **argv, int check);
 void	ft_exit(int status);
 void	ft_free_stack(char **argv);
 int		new_argc(char **argv);
+
+/* index */
+void	ft_addindex(t_list **a, int argc, char **argv, int saver);
+void	ft_addindex_str(t_list **a, int argc, char **argv);
+char	**ft_sort_params(int argc, char **argv, int check);
+
 
 /* swap instructions */
 void	swap(t_list	*lst);
@@ -71,5 +74,13 @@ int		only_numbers(char **argv);
 int		a_is_sorted(t_list *lst);
 int		find_doubles(char **argv, int i, int nb);
 int		overflow(char *str);
+
+/* algorithm */
+void	ft_big_sort(t_list **a, t_list **b, int argc);
+void	sort_chunks(t_list **a, t_list **b, int argc, int start, int end);
+void	move_to_top(t_list **a, t_list **b, int center, int start, int end);
+int	steps_from_top(t_list *lst_a, int center, int start, int end);
+int	steps_from_bottom(t_list *lst_a, int center, int start, int end);
+int	get_max(t_list *a);
 
 #endif

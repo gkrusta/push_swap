@@ -6,14 +6,14 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:03:10 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/09 13:13:04 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/09 14:03:50 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
 /* finds the min index in the stack b */
-int	min_index(t_list *lst_b)
+/* int	min_index(t_list *lst_b)
 {
 	int		i;
 	t_list	*b;
@@ -27,7 +27,7 @@ int	min_index(t_list *lst_b)
 		b = b->next;
 	}
 	return (i);
-}
+} */
 
 /* finds the max index in the stack b */
 /* int	max_index(t_list *lst_b)
