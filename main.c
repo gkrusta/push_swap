@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/06 15:54:38 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/09 19:10:55 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	new_argc(char **argv)
 void	ft_locate(t_list *a, int argc, char **argv)
 {
 	int		i;
-	t_list	*fill_a;
 	int		saver;
 /* 	char	**new;
  */
@@ -62,8 +61,7 @@ void	ft_locate(t_list *a, int argc, char **argv)
 		i++;
 		while (argv[i])
 		{
-			fill_a = ft_lstnew(ft_atoi(argv[i]));
-			ft_lstadd_back(&a, fill_a);
+			ft_lstadd_back(&a, ft_lstnew(ft_atoi(argv[i])));
 			i++;
 		}
 	}
@@ -96,10 +94,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (-1);
-	a = (t_list *)malloc(sizeof(t_list));
-	b = (t_list *)malloc(sizeof(t_list));
-	if (!b || !a)
-		return (1);
+	a = ft_lstnew(0);
+	b = ft_lstnew(0);
 	ft_locate(a, argc, argv);
 
 	t_list *current_a = a;
@@ -130,8 +126,15 @@ int	main(int argc, char **argv)
 	t_list *current_sorted_a = a;
 	while (current_sorted_a)
 	{
-		printf("after sorting: %d\n", current_sorted_a->value);
+		printf("after sorting stack A:  %d\n", current_sorted_a->value);
 		current_sorted_a = current_sorted_a->next;
+	}
+	printf("\n");
+	t_list *current_sorted_b = b;
+	while (current_sorted_b)
+	{
+		printf("after sorting stack B:  %d\n", current_sorted_b->value);
+		current_sorted_b = current_sorted_b->next;
 	}
 	return (0);
 }

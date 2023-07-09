@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/09 14:11:07 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/09 20:45:51 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,11 @@ int		overflow(char *str);
 
 /* algorithm */
 void	ft_big_sort(t_list **a, t_list **b, int argc);
-void	sort_chunks(t_list **a, t_list **b, int argc, int start, int end);
-void	move_to_top(t_list **a, t_list **b, int center, int start, int end);
-int	steps_from_top(t_list *lst_a, int center, int start, int end);
-int	steps_from_bottom(t_list *lst_a, int center, int start, int end);
+void	sort_chunks(t_list **a, t_list **b, int start, int end);
+void	move_to_top(t_list **a, t_list **b, int start, int end);
+int	steps_from_top(t_list *lst_a, int start, int end);
+int	steps_from_bottom(t_list *lst_a, int start, int end);
 int	get_max(t_list *a);
+int	size_of_chunk(t_list *a, int chunks);
 
 #endif

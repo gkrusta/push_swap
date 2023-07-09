@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/09 14:22:54 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/09 20:58:42 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,45 +64,52 @@ int	get_max(t_list *a)
 
 } */
 
-int	steps_from_bottom(t_list *lst_a, int center, int start, int end)
+int	steps_from_bottom(t_list *lst_a, int start, int end)
 {
-	t_list	*a;
-	t_list	*current;
+	t_list	*final;
+	t_list	*new;
+	t_list	*curr;
 	int		pos;
 	int		i;
 	int		j;
 
-	a = lst_a;
+	final = lst_a;
 	pos = ft_lstsize(lst_a) - 1;
 	i = 0;
-	while (pos > center)
+	new = ft_lstlast(final);
+	while (pos < ft_lstsize(lst_a))
 	{
-		if (a->value <= start && a->value >= end)
-			return (i);
+		printf("steps from bottom:   value now: %d\n", new->value);
+		printf("steps from bottom:   start %d and end %d\n", start, end);
 		j = 0;
-		while (j <= pos) // - 1??
+		if (final->value >= start && final->value <= end)
+			return (i);
+		curr = lst_a;
+		while (j < pos)
 		{
-			current = current->next;
+			curr = curr->next;
 			j++;
 		}
-		a = current;
+		final = curr;
+/* 		printf("OOOOOOOO"); */
 		pos--;
 		i++;
-		a = a->next;
 	}
 	return (-1);
 }
 
-int	steps_from_top(t_list *lst_a, int center, int start, int end)
+int	steps_from_top(t_list *lst_a, int start, int end)
 {
 	int		pos;
 	t_list	*a;
 
 	pos = 0;
 	a = lst_a;
-	while (pos <= center)
+	while (pos <= ft_lstsize(lst_a))
 	{
-		if (a->value <= start && a->value >= end)
+		printf("steps from top:   value now: %d\n", a->value);
+		printf("steps from top:   start %d and end %d\n", start, end);
+		if (a->value >= start && a->value <= end)
 			return (pos);
 		pos++;
 		a = a->next;
@@ -111,14 +118,16 @@ int	steps_from_top(t_list *lst_a, int center, int start, int end)
 }
 
 /* move elements using ra or rra to the top of stack A */
-void	move_to_top(t_list **a, t_list **b, int center, int start, int end)
+void	move_to_top(t_list **a, t_list **b, int start, int end)
 {
 	int	dist_top;
 	int	dist_bottom;
 
-	dist_top = steps_from_top(*a, center, start, end);
-	dist_bottom = steps_from_bottom(*a, center, start, end);
-	if (dist_top <= dist_bottom)
+	dist_top = steps_from_top(*a, start, end);
+	dist_bottom = steps_from_bottom(*a, start, end);
+	printf("dist from top is: %d\n", dist_top);
+	printf("dist from bottom is: %d\n", dist_bottom);
+	if (dist_top <= dist_bottom || dist_bottom == -1)
 	{
 		while (dist_top > 0)
 		{
@@ -137,17 +146,38 @@ void	move_to_top(t_list **a, t_list **b, int center, int start, int end)
 	pb(a, b);
 }
 
-void	sort_chunks(t_list **a, t_list **b, int argc, int start, int end)
+void	sort_chunks(t_list **a, t_list **b, int start, int end)
 {
-	int	center;
 
-	center = argc / 2;
-	while (steps_from_top(*a, center, start, end) != -1
-		|| steps_from_bottom(*a, center, start, end) != -1)
+	while (steps_from_top(*a, start, end) || steps_from_bottom(*a, start, end))
 	{
-		move_to_top(a, b, center, start, end);
+		printf("11 dist from top is: %d\n", steps_from_top(*a, start, end));
+		printf("11 dist from bottom is: %d\n", steps_from_bottom(*a, start, end));
+		move_to_top(a, b, start, end);
 /* 		push_to_stack_b(a, b, a->value);
  */	}
+}
+
+/* depending on the int value size of the chunks changes */
+int	size_of_chunk(t_list *a, int chunks)
+{
+	int	size;
+	int	max;
+	int	min;
+
+	max = get_max(a);
+	min = get_min(a);
+	if (max < 0 && min < 0)
+		size = (-1) * (max + min);
+	else if (max < 0 && min > 0)
+		size = ((-1) * max + min);
+	else if (max > 0 && min < 0)
+		size = ((-1) * min + max);
+	else
+		size = max - min;
+	while (size % chunks != 0)
+		size++;
+	return (size / chunks);
 }
 
 void	ft_big_sort(t_list **a, t_list **b, int argc)
@@ -162,14 +192,17 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 	else
 		chunks = 11;
 	start = get_min(*a);
-	size = get_max(*a) / chunks; //need to fix
+	size = size_of_chunk(*a, chunks); // test
 	printf("start value:  %d\n", start);
 	printf("max value:  %d\n", get_max(*a));
 	printf("size:  %d\n", size);
-	while (start <= get_max(*a))
+	while (chunks > 0)
 	{
 		end = start + size;
-		sort_chunks(a, b, argc, start, end);
+		printf("END!!!!! :  %d\n", end);
+		sort_chunks(a, b, start, end);
 		start += size;
+		printf("start!!!!! :  %d\n", start);
+		chunks--;
 	}
 }
