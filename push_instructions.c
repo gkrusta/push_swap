@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 17:02:11 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 18:10:02 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/10 15:49:44 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	push(t_list **stack_from, t_list **stack_to)
 		return (-1);
 	tmp = *stack_from;
 	*stack_from = (*stack_from)->next;
-
 	if (*stack_to == NULL)
 	{
 		*stack_to = tmp;

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/10 13:57:28 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/10 18:39:08 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,34 +105,26 @@ int	steps_from_bottom(t_list *lst_a, int start, int end)
 	t_list	*a;
 
 	pos = 0;
-	flag == 1;
+	flag = 0;
+	count = 0;
 	a = lst_a;
-	while (pos <= ft_lstsize(lst_a))
+	while (pos <= ft_lstsize(lst_a) - 1)
 	{
 		printf("steps from bottom:   value now: %d\n", a->value);
 		printf("steps from bottom:   start %d and end %d\n", start, end);
-		if (a->value >= start && a->value <= end && flag == 1)
-			flag = 0;
+		if (a->value >= start && a->value <= end)
+		{
+			flag = 1;
+			count = 0;
+		}
+		count++;
 		pos++;
 		a = a->next;
-		if (a->value >= start && a->value <= end && flag == 0)
-		{
-			while (pos <= ft_lstsize(lst_a))
-			{
-				pos++;
-				a = a->next;
-				if (a->value >= start && a->value <= end)
-				{
-					flag = 1;
-					break ;
-				}
-			}
-		}
-		if (count > 0)
-			return (count);
-		else
-			return (-1);
 	}
+	if (count > 0 && flag == 1)
+		return (count);
+	else
+		return (-1);
 }
 
 int	steps_from_top(t_list *lst_a, int start, int end)
@@ -142,7 +134,7 @@ int	steps_from_top(t_list *lst_a, int start, int end)
 
 	pos = 0;
 	a = lst_a;
-	while (pos <= ft_lstsize(lst_a))
+	while (a != NULL && pos <= ft_lstsize(lst_a))
 	{
 		printf("steps from top:   value now: %d\n", a->value);
 		printf("steps from top:   start %d and end %d\n", start, end);
@@ -185,8 +177,7 @@ void	move_to_top(t_list **a, t_list **b, int start, int end)
 
 void	sort_chunks(t_list **a, t_list **b, int start, int end)
 {
-
-	while (steps_from_top(*a, start, end) || steps_from_bottom(*a, start, end))
+	while (steps_from_top(*a, start, end) != -1 && steps_from_bottom(*a, start, end) != -1 )
 	{
 		printf("11 dist from top is: %d\n", steps_from_top(*a, start, end));
 		printf("11 dist from bottom is: %d\n", steps_from_bottom(*a, start, end));
@@ -217,6 +208,41 @@ int	size_of_chunk(t_list *a, int chunks)
 	return (size / chunks);
 }
 
+void	move_to_a(t_list **a, t_list **b)
+{
+	int	start;
+	int	end;
+	int	dist_top;
+	int	dist_bottom;
+
+	start = 
+	dist_top = steps_from_top(*b, start, end);
+	dist_bottom = steps_from_bottom(*b, start, end);
+	printf("NOW IN STACK B dist from top is : %d\n", dist_top);
+	printf("NOW IN STACK B dist from bottom is: %d\n", dist_bottom);
+	while (s_b->top >= 0)
+	{
+		top_back = max_position(s_b);
+		if (top_back > s_b->top / 2)
+		{
+			while (top_back < s_b->top)
+			{
+				rb(s_b);
+				top_back++;
+			}
+		}
+		else
+		{
+			while (top_back >= 0)
+			{
+				rrb(s_b);
+				top_back--;
+			}
+		}
+		pa(s_a, s_b);
+	}
+}
+
 void	ft_big_sort(t_list **a, t_list **b, int argc)
 {
 	int	chunks;
@@ -229,7 +255,7 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 	else
 		chunks = 11;
 	start = get_min(*a);
-	size = size_of_chunk(*a, chunks); // test
+	size = size_of_chunk(*a, chunks);
 	printf("start value:  %d\n", start);
 	printf("max value:  %d\n", get_max(*a));
 	printf("size:  %d\n", size);
@@ -242,4 +268,5 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 		printf("start!!!!! :  %d\n", start);
 		chunks--;
 	}
+	move_to_a(a, b);
 }

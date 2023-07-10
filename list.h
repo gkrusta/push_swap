@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/10 13:20:16 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/10 18:31:51 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_locate(t_list *a, int argc, char **argv);
 void	ft_exit(int status);
 void	ft_free_stack(char **argv);
 int		new_argc(char **argv);
+void	delete_last_element(t_list **stack);
 
 /* index */
 void	ft_addindex(t_list **a, int argc, char **argv, int saver);
@@ -83,5 +84,6 @@ int	steps_from_top(t_list *lst_a, int start, int end);
 int	steps_from_bottom(t_list *lst_a, int start, int end);
 int	get_max(t_list *a);
 int	size_of_chunk(t_list *a, int chunks);
+void	move_to_a(t_list **a, t_list **b);
 
 #endif
