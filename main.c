@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/09 19:10:55 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/10 13:27:35 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ void	ft_locate(t_list *a, int argc, char **argv)
 {
 	int		i;
 	int		saver;
-/* 	char	**new;
- */
+
 	i = 1;
 	saver = argc;
 	if (argc == 2)
@@ -53,8 +52,6 @@ void	ft_locate(t_list *a, int argc, char **argv)
 		argc = new_argc(argv);
 		i = 0;
 	}
-/* 	else
-		new = &argv[1]; */
 	if (ft_valid_nb(argv, argc, i))
 	{
 		a->value = ft_atoi(argv[i]);
@@ -65,6 +62,14 @@ void	ft_locate(t_list *a, int argc, char **argv)
 			i++;
 		}
 	}
+
+	t_list *previous= ft_lstlast(a);
+	while (previous != NULL)
+	{
+		printf("!!!!!!!!!!!previous points to this in stack A:  %d\n", previous->value);
+		previous = previous->prev;
+	}
+	printf("\n");
 	ft_addindex(&a, argc, argv, saver);
 	if (argc == 2)
 		ft_free_stack(argv);

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/09 20:58:42 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/10 13:57:28 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	get_max(t_list *a)
 
 
 } */
-
+/* 
 int	steps_from_bottom(t_list *lst_a, int start, int end)
 {
 	t_list	*final;
@@ -91,11 +91,48 @@ int	steps_from_bottom(t_list *lst_a, int start, int end)
 			j++;
 		}
 		final = curr;
-/* 		printf("OOOOOOOO"); */
 		pos--;
 		i++;
 	}
 	return (-1);
+} */
+
+int	steps_from_bottom(t_list *lst_a, int start, int end)
+{
+	int		pos;
+	int		flag;
+	int		count;
+	t_list	*a;
+
+	pos = 0;
+	flag == 1;
+	a = lst_a;
+	while (pos <= ft_lstsize(lst_a))
+	{
+		printf("steps from bottom:   value now: %d\n", a->value);
+		printf("steps from bottom:   start %d and end %d\n", start, end);
+		if (a->value >= start && a->value <= end && flag == 1)
+			flag = 0;
+		pos++;
+		a = a->next;
+		if (a->value >= start && a->value <= end && flag == 0)
+		{
+			while (pos <= ft_lstsize(lst_a))
+			{
+				pos++;
+				a = a->next;
+				if (a->value >= start && a->value <= end)
+				{
+					flag = 1;
+					break ;
+				}
+			}
+		}
+		if (count > 0)
+			return (count);
+		else
+			return (-1);
+	}
 }
 
 int	steps_from_top(t_list *lst_a, int start, int end)

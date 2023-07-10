@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:21:13 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/09 21:04:20 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/10 13:39:05 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ typedef struct s_list
 	int	value; // adding these elements for push_swap
 	int	index;
 	struct s_list	*next;
-	struct s_list	*prev;
 }					t_list;
 
 t_list	*ft_lstnew(int value);
