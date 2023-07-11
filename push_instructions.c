@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 17:02:11 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/10 15:49:44 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 13:23:15 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	pa(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_b, stack_a) == -1)
 		return (-1);
-	write (1, "pa\n", 3);
+	ft_printf("pa\n");
 	return (0);
 }
 
@@ -98,6 +98,6 @@ int	pb(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_a, stack_b) == -1)
 		return (-1);
-	write (1, "pb\n", 3);
+	ft_printf("pb\n");
 	return (0);
 }

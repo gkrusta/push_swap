@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5.c                                            :+:      :+:    :+:   */
+/*   ft_void_ptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 16:58:07 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 18:06:37 by gkrusta          ###   ########.fr       */
+/*   Created: 2023/05/04 12:21:26 by gkrusta           #+#    #+#             */
+/*   Updated: 2023/05/05 13:44:52 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "ft_printf.h"
 
-void	sort_5(t_list **a, t_list **b)
+int	ft_void_ptr(unsigned long long n)
 {
-	if ((*a)->next->index == 1)
-		sa(*a);
-	else if ((*a)->next->next->index == 1)
-	{
-		ra(a);
-		ra(a);
-	}
-	else if ((*a)->next->next->next->index == 1)
-	{
-		rra(a);
-		rra(a);
-	}
-	else if ((*a)->next->next->next->next->index == 1)
-		rra(a);
-	pb(a, b);
-	sort_4(a, b, 2);
-	pa(a, b);
+	int	i;
+
+	i = 0;
+	i += ft_putstr("0x");
+	i += ft_hexadec(n, 'x');
+	return (i);
 }

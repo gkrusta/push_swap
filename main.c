@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/10 18:27:21 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 11:45:21 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,6 @@ void	ft_locate(t_list *a, int argc, char **argv)
 			i++;
 		}
 	}
-/* 	t_list *previous= ft_lstlast(a);
-	while (previous != NULL)
-	{
-		printf("!!!!!!!!!!!previous points to this in stack A:  %d\n", previous->value);
-		previous = previous->prev;
-	}
-	printf("\n"); */
 	ft_addindex(&a, argc, argv, saver);
 	if (argc == 2)
 		ft_free_stack(argv);
@@ -90,7 +83,7 @@ void	ft_small_sort(t_list **a, t_list **b)
 		sort_5(a, b);
 }
 
-void	delete_last_element(t_list **stack)
+/* void	delete_last_element(t_list **stack)
 {
 	t_list	*current;
 
@@ -107,7 +100,7 @@ void	delete_last_element(t_list **stack)
 		current = current->next;
 	free(current->next);
 	current->next = NULL;
-}
+} */
 
 /* declare 2 stacks */
 int	main(int argc, char **argv)
@@ -118,7 +111,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (-1);
 	a = ft_lstnew(0);
-	b = ft_lstnew(0);
+	//b = ft_lstnew(0);
 	ft_locate(a, argc, argv);
 
 	t_list *current_a = a;
@@ -138,7 +131,7 @@ int	main(int argc, char **argv)
 	if (a_is_sorted(a) == 1)
 	{
 		free (a);
-		free (b);
+		//free (b);
 		return (0);
 	}
 	if (ft_lstsize(a) < 6)
@@ -153,8 +146,7 @@ int	main(int argc, char **argv)
 		current_sorted_a = current_sorted_a->next;
 	}
 	printf("\n");
-	/* to delete the last elemenet which is 0 */
-	delete_last_element(&b);
+/* 	delete_last_element(&b); */
 	t_list *current_sorted_b = b;
 	while (current_sorted_b != NULL)
 	{

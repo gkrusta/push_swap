@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort4.c                                            :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 19:16:39 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 18:09:16 by gkrusta          ###   ########.fr       */
+/*   Created: 2023/05/02 16:14:44 by gkrusta           #+#    #+#             */
+/*   Updated: 2023/05/05 10:33:03 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "ft_printf.h"
 
-/* sort 4 elements by pushing the lowest index element to the stack B at first*/
-void	sort_4(t_list **a, t_list **b, int flag)
+int	ft_putchar(char c)
 {
-	if ((*a)->next->index == flag)
-		sa(*a);
-	else if ((*a)->next->next->index == flag)
-	{
-		ra(a);
-		ra(a);
-	}
-	else if ((*a)->next->next->next->index == flag)
-		rra(a);
-	pb(a, b);
-	sort_3(a);
-	pa(a, b);
+	write (1, &c, 1);
+	return (1);
 }

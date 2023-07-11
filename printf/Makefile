@@ -5,46 +5,40 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/07/11 13:16:10 by gkrusta          ###   ########.fr        #
+#    Created: 2023/05/02 16:20:12 by gkrusta           #+#    #+#              #
+#    Updated: 2023/05/05 13:54:57 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pushswap
+NAME = libftprintf.a
 
-PUSHSWAP = ar rcs
+LIB = ar rcs
 
-SRCS =  main.c  rotate_instructions.c  rev_rotate_instructions.c \
-		swap_instructions.c  push_instructions.c  index.c \
-		valid_nb.c  small_sort.c  algorithm.c
+SRCS = ft_putchar.c ft_putstr.c ft_decimal.c \
+	   ft_us_decimal.c ft_hexadec.c ft_void_ptr.c \
+	   ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
-RM = rm -f	
+RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C libft1/ all
-	make -C printf/ all
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS) libft1/libft.a printf/libftprintf.a
+	$(LIB) $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
-	make -C libft1/ clean
-	make -C printf/ clean
 
 fclean: clean
 	$(RM) $(NAME)
-	make -C libft1/ fclean
-	make -C printf/ fclean
 
 re: fclean all
 

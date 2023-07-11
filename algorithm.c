@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/10 18:39:08 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 14:01:56 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int	get_max(t_list *a)
 
 	max_index = max_index(&b);
 	min_index = min_index(&b);
-
-
 } */
 /* 
 int	steps_from_bottom(t_list *lst_a, int start, int end)
@@ -215,7 +213,8 @@ void	move_to_a(t_list **a, t_list **b)
 	int	dist_top;
 	int	dist_bottom;
 
-	start = 
+	start = 0;
+	end = ft_lstsize(*b);
 	dist_top = steps_from_top(*b, start, end);
 	dist_bottom = steps_from_bottom(*b, start, end);
 	printf("NOW IN STACK B dist from top is : %d\n", dist_top);
@@ -223,9 +222,9 @@ void	move_to_a(t_list **a, t_list **b)
 	while (s_b->top >= 0)
 	{
 		top_back = max_position(s_b);
-		if (top_back > s_b->top / 2)
+		if (top_back > end / 2)
 		{
-			while (top_back < s_b->top)
+			while (top_back < ft_lstsize(*b))
 			{
 				rb(s_b);
 				top_back++;
@@ -239,10 +238,24 @@ void	move_to_a(t_list **a, t_list **b)
 				top_back--;
 			}
 		}
-		pa(s_a, s_b);
+		pa(a, b);
 	}
 }
+static int	max_position(t_stack *stack)
+{
+	int	i;
+	int	aux;
 
+	i = stack->top - 1;
+	aux = stack->top;
+	while (i >= 0)
+	{
+		if (stack->numbers[i] > stack->numbers[aux])
+			aux = i;
+		i--;
+	}
+	return (aux);
+}
 void	ft_big_sort(t_list **a, t_list **b, int argc)
 {
 	int	chunks;
@@ -268,5 +281,5 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 		printf("start!!!!! :  %d\n", start);
 		chunks--;
 	}
-	move_to_a(a, b);
+	/* move_to_a(a, b); */
 }

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:11:38 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/10 15:49:25 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 13:22:49 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ void	rotate(t_list **lst)
 void	ra(t_list **a)
 {
 	rotate(a);
-	write (1, "ra\n", 3);
+	ft_printf("ra\n");
 }
 
 void	rb(t_list **b)
 {
 	rotate(b);
-	write (1, "rb\n", 3);
+	ft_printf("rb\n");
 }
 
 void	rr(t_list **a, t_list **b)
 {
 	rotate(a);
 	rotate(b);
-	write (1, "rr\n", 3);
+	ft_printf("rr\n");
 }

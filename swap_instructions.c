@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:01:06 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/05 17:34:21 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 13:22:01 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	swap(t_list	*lst)
 void	sa(t_list *a)
 {
 	swap(a);
-	write (1, "sa\n", 3);
+	ft_printf("sa\n");
 }
 
 void	sb(t_list *b)
 {
 	swap(b);
-	write (1, "sb\n", 3);
+	ft_printf("sb\n");
 }
 
 void	ss(t_list *a, t_list *b)
 {
 	swap(a);
 	swap(b);
-	write (1, "ss\n", 3);
+	ft_printf("ss\n");
 }
