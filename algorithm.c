@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 14:01:56 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 16:34:51 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,6 @@ int	steps_from_bottom(t_list *lst_a, int start, int end)
 	a = lst_a;
 	while (pos <= ft_lstsize(lst_a) - 1)
 	{
-		printf("steps from bottom:   value now: %d\n", a->value);
-		printf("steps from bottom:   start %d and end %d\n", start, end);
 		if (a->value >= start && a->value <= end)
 		{
 			flag = 1;
@@ -134,8 +132,6 @@ int	steps_from_top(t_list *lst_a, int start, int end)
 	a = lst_a;
 	while (a != NULL && pos <= ft_lstsize(lst_a))
 	{
-		printf("steps from top:   value now: %d\n", a->value);
-		printf("steps from top:   start %d and end %d\n", start, end);
 		if (a->value >= start && a->value <= end)
 			return (pos);
 		pos++;
@@ -152,8 +148,6 @@ void	move_to_top(t_list **a, t_list **b, int start, int end)
 
 	dist_top = steps_from_top(*a, start, end);
 	dist_bottom = steps_from_bottom(*a, start, end);
-	printf("dist from top is: %d\n", dist_top);
-	printf("dist from bottom is: %d\n", dist_bottom);
 	if (dist_top <= dist_bottom || dist_bottom == -1)
 	{
 		while (dist_top > 0)
@@ -177,11 +171,8 @@ void	sort_chunks(t_list **a, t_list **b, int start, int end)
 {
 	while (steps_from_top(*a, start, end) != -1 && steps_from_bottom(*a, start, end) != -1 )
 	{
-		printf("11 dist from top is: %d\n", steps_from_top(*a, start, end));
-		printf("11 dist from bottom is: %d\n", steps_from_bottom(*a, start, end));
 		move_to_top(a, b, start, end);
-/* 		push_to_stack_b(a, b, a->value);
- */	}
+	}
 }
 
 /* depending on the int value size of the chunks changes */
@@ -206,42 +197,55 @@ int	size_of_chunk(t_list *a, int chunks)
 	return (size / chunks);
 }
 
+int	max_to_top(t_list *lst_b, int value)
+{
+	int		pos;
+	t_list	*b;
+
+	pos = 0;
+	b = lst_b;
+	while (b != NULL && pos <= ft_lstsize(lst_b))
+	{
+		if (b->value == value)
+			return (pos);
+		pos++;
+		b = b->next;
+	}
+	return (-1);
+}
+
 void	move_to_a(t_list **a, t_list **b)
 {
-	int	start;
-	int	end;
 	int	dist_top;
 	int	dist_bottom;
+	int	top;
 
-	start = 0;
-	end = ft_lstsize(*b);
-	dist_top = steps_from_top(*b, start, end);
-	dist_bottom = steps_from_bottom(*b, start, end);
-	printf("NOW IN STACK B dist from top is : %d\n", dist_top);
-	printf("NOW IN STACK B dist from bottom is: %d\n", dist_bottom);
-	while (s_b->top >= 0)
+	while (*b)
 	{
-		top_back = max_position(s_b);
-		if (top_back > end / 2)
+		top = get_max(*b);
+		dist_top = max_to_top(*b, top);
+		dist_bottom = ft_lstsize(*b) - dist_top;
+		if (dist_top <= dist_bottom)
 		{
-			while (top_back < ft_lstsize(*b))
+			while (dist_top > 0)
 			{
-				rb(s_b);
-				top_back++;
+				rb(b);
+				dist_top--;
 			}
 		}
 		else
 		{
-			while (top_back >= 0)
+			while (dist_bottom > 0)
 			{
-				rrb(s_b);
-				top_back--;
+				rrb(b);
+				dist_bottom--;
 			}
 		}
 		pa(a, b);
 	}
 }
-static int	max_position(t_stack *stack)
+
+/* static int	max_position(t_stack *stack)
 {
 	int	i;
 	int	aux;
@@ -255,7 +259,8 @@ static int	max_position(t_stack *stack)
 		i--;
 	}
 	return (aux);
-}
+} */
+
 void	ft_big_sort(t_list **a, t_list **b, int argc)
 {
 	int	chunks;
@@ -263,7 +268,7 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 	int	size;
 	int	end;
 
-	if (argc <= 100)
+	if (argc - 1 <= 100)
 		chunks = 5;
 	else
 		chunks = 11;
@@ -275,11 +280,9 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 	while (chunks > 0)
 	{
 		end = start + size;
-		printf("END!!!!! :  %d\n", end);
 		sort_chunks(a, b, start, end);
 		start += size;
-		printf("start!!!!! :  %d\n", start);
 		chunks--;
 	}
-	/* move_to_a(a, b); */
+	move_to_a(a, b);
 }

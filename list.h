@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 13:21:22 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 15:25:48 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int		steps_from_top(t_list *lst_a, int start, int end);
 int		steps_from_bottom(t_list *lst_a, int start, int end);
 int		get_max(t_list *a);
 int		size_of_chunk(t_list *a, int chunks);
-/* void	move_to_a(t_list **a, t_list **b); */
+void	move_to_a(t_list **a, t_list **b);
+int		max_to_top(t_list *lst_b, int value);
 
 #endif

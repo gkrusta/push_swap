@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 11:45:21 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 16:42:39 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	new_argc(char **argv)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (argv[i])
 		i++;
 	return (i);
@@ -122,7 +122,7 @@ int	main(int argc, char **argv)
 	}
 
 	t_list *current_a_index = a;
-	while (current_a_index)
+	while (current_a_index != NULL)
 	{
 		printf("index: %d\n", current_a_index->index);
 		current_a_index = current_a_index->next;
@@ -139,19 +139,19 @@ int	main(int argc, char **argv)
 	else
 		ft_big_sort(&a, &b, argc);
 	printf("\n");
-	t_list *current_sorted_a = a;
-	while (current_sorted_a)
-	{
-		printf("after sorting stack A:  %d\n", current_sorted_a->value);
-		current_sorted_a = current_sorted_a->next;
-	}
-	printf("\n");
 /* 	delete_last_element(&b); */
 	t_list *current_sorted_b = b;
 	while (current_sorted_b != NULL)
 	{
 		printf("after sorting stack B:  %d\n", current_sorted_b->value);
 		current_sorted_b = current_sorted_b->next;
+	}
+	printf("----\n");
+	t_list *current_sorted_a = a;
+	while (current_sorted_a)
+	{
+		printf("after sorting stack A:  %d\n", current_sorted_a->value);
+		current_sorted_a = current_sorted_a->next;
 	}
 	return (0);
 }
