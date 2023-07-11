@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 16:42:39 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/11 16:51:56 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_locate(t_list *a, int argc, char **argv)
 			i++;
 		}
 	}
-	ft_addindex(&a, argc, argv, saver);
+	ft_addindex(&a, argc - 1, argv, saver);
 	if (argc == 2)
 		ft_free_stack(argv);
 }
