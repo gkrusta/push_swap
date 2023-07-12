@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 16:42:39 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/12 18:01:07 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,25 +83,6 @@ void	ft_small_sort(t_list **a, t_list **b)
 		sort_5(a, b);
 }
 
-/* void	delete_last_element(t_list **stack)
-{
-	t_list	*current;
-
-	if (*stack == NULL)
-		return ;
-	if ((*stack)->next == NULL)
-	{
-		free(*stack);
-		*stack = NULL;
-		return ;
-	}
-	current = *stack;
-	while (current->next->next != NULL)
-		current = current->next;
-	free(current->next);
-	current->next = NULL;
-} */
-
 /* declare 2 stacks */
 int	main(int argc, char **argv)
 {
@@ -110,24 +91,24 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (-1);
-	a = ft_lstnew(0);
+	a = malloc(sizeof(t_list));
 	//b = ft_lstnew(0);
 	ft_locate(a, argc, argv);
-
-	t_list *current_a = a;
+/* 	t_list *current_a = a;
 	while (current_a)
 	{
 		printf("before sorting: %d\n", current_a->value);
 		current_a = current_a->next;
 	}
-
+	printf("list size is %d\n\n", ft_lstsize(a));
+	printf("argc %d", argc);
 	t_list *current_a_index = a;
 	while (current_a_index != NULL)
 	{
 		printf("index: %d\n", current_a_index->index);
 		current_a_index = current_a_index->next;
 	}
-	printf("\n");
+	printf("\n"); */
 	if (a_is_sorted(a) == 1)
 	{
 		free (a);
@@ -138,9 +119,8 @@ int	main(int argc, char **argv)
 		ft_small_sort(&a, &b);
 	else
 		ft_big_sort(&a, &b, argc);
-	printf("\n");
-/* 	delete_last_element(&b); */
-	t_list *current_sorted_b = b;
+/* 	printf("\n"); */
+/* 	t_list *current_sorted_b = b;
 	while (current_sorted_b != NULL)
 	{
 		printf("after sorting stack B:  %d\n", current_sorted_b->value);
@@ -152,6 +132,6 @@ int	main(int argc, char **argv)
 	{
 		printf("after sorting stack A:  %d\n", current_sorted_a->value);
 		current_sorted_a = current_sorted_a->next;
-	}
+	} */
 	return (0);
 }

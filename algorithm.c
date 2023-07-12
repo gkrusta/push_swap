@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 16:34:51 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/12 17:33:19 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,9 +274,6 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 		chunks = 11;
 	start = get_min(*a);
 	size = size_of_chunk(*a, chunks);
-	printf("start value:  %d\n", start);
-	printf("max value:  %d\n", get_max(*a));
-	printf("size:  %d\n", size);
 	while (chunks > 0)
 	{
 		end = start + size;

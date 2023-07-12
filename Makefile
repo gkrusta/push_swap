@@ -6,7 +6,7 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/07/11 16:05:56 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/07/12 17:01:21 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,22 +29,25 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C libft1/ all
-	make -C printf/ all
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS) libft1/libft.a printf/libftprintf.a
+	@echo "\033[32mCompiling Push Swap...\n"
+	@make -C libft1/ all
+	@make -C printf/ all
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJS) libft1/libft.a printf/libftprintf.a
+	@ echo "\n\t\t\033[32mCompiled!\n"
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
-	make -C libft1/ clean
-	make -C printf/ clean
+	@$(RM) $(OBJS)
+	@make -C libft1/ clean
+	@make -C printf/ clean
+	@ echo "\n\t\t\033[32mEverything is clean!\n"
 
 fclean: clean
-	$(RM) $(NAME)
-	make -C libft1/ fclean
-	make -C printf/ fclean
+	@$(RM) $(NAME)
+	@make -C libft1/ fclean
+	@make -C printf/ fclean
 
 re: fclean all
 

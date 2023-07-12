@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:03:10 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/09 14:03:50 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/12 12:39:15 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ void	ft_addindex(t_list **a, int argc, char **argv, int saver)
 	else
 	{
 		ft_sort_params(argc, argv, x);
-		printf ("addinedx  %d\n\n", tmp->value);
 		while (tmp)
 		{
 			x = 1;

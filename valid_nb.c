@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 12:45:11 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/12 17:34:18 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,8 @@ int	ft_valid_nb(char **new, int argc, int i)
 {
 	if (only_numbers(new) != 1)
 	{
-		if (argc == 2)
+		/* if (argc == 2) */
 			ft_free_stack(new);
-		printf("onlynb\n");
 		ft_exit(1);
 	}
 	while (new[i + 1]) // the last element would be checked in find_doubles()

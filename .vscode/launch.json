@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/gkrusta/Desktop/push_swap",
-      "program": "/Users/gkrusta/Desktop/push_swap/build/Debug/outDebug"
+      "cwd": "/Users/gkrusta/Desktop/push_swap/libft1",
+      "program": "/Users/gkrusta/Desktop/push_swap/libft1/build/Debug/outDebug"
     }
   ]
 }

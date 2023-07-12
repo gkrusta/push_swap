@@ -6,7 +6,7 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 16:20:08 by gkrusta           #+#    #+#              #
-#    Updated: 2023/06/23 15:05:11 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/07/12 16:46:14 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,16 +42,16 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(LIB) $(NAME) $(OBJS)
+	@$(LIB) $(NAME) $(OBJS)
 
-$(OBJS): $(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS)
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	@$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
