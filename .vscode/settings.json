@@ -4,7 +4,9 @@
     "__bit_reference": "c",
     "bitset": "c",
     "chrono": "c",
-    "unordered_map": "c"
+    "unordered_map": "c",
+    "get_next_line.h": "c",
+    "list.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",
@@ -41,5 +43,6 @@
     "**/.vscode/**"
   ],
   "C_Cpp_Runner.useAddressSanitizer": false,
-  "C_Cpp_Runner.showCompilationTime": false
+  "C_Cpp_Runner.showCompilationTime": false,
+  "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }

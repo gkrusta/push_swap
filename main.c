@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/12 18:01:07 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 14:13:48 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ int	main(int argc, char **argv)
 	if (a_is_sorted(a) == 1)
 	{
 		free (a);
-		//free (b);
 		return (0);
 	}
 	if (ft_lstsize(a) < 6)

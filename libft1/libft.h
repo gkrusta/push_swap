@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:21:13 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/10 13:39:05 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 11:41:26 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 /* functions from <stdlib.h> */
 int		ft_atoi(const char	*str);
@@ -79,6 +80,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/* functions for printf */
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+int		ft_decimal(long n);
+int		ft_us_decimal(unsigned int n);
+int		ft_hexadec(unsigned long long n, char c);
+int		ft_void_ptr(unsigned long long n);
+int		ft_printf(char const *str, ...);
 
 /* functions added for push_swap */
 long	ft_long_atoi(const char	*str);

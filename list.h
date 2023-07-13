@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 15:25:48 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 14:10:08 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 /* libraries used */
 # include "libft1/libft.h"
-# include "printf/ft_printf.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
@@ -86,5 +85,10 @@ int		get_max(t_list *a);
 int		size_of_chunk(t_list *a, int chunks);
 void	move_to_a(t_list **a, t_list **b);
 int		max_to_top(t_list *lst_b, int value);
+
+/* to print the stacks */
+void	lst_print_stacks(t_list **lst_a, t_list **lst_b);
+t_list	*lst_print_node(t_list *lst);
+void	print_format(char c);
 
 #endif
