@@ -6,11 +6,11 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:27:48 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/05/05 13:44:45 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:20:47 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_compare(va_list args, const char c)
 {

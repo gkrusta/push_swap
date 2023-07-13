@@ -6,12 +6,16 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:21:13 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 11:41:26 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:24:19 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 /* Libraries used */
 
@@ -20,6 +24,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <fcntl.h>
 
 /* functions from <stdlib.h> */
 int		ft_atoi(const char	*str);
@@ -89,6 +94,18 @@ int		ft_us_decimal(unsigned int n);
 int		ft_hexadec(unsigned long long n, char c);
 int		ft_void_ptr(unsigned long long n);
 int		ft_printf(char const *str, ...);
+
+/* get next line */
+/* utils used */
+int		ft_strchr_gnl(const char *str, int c);
+int		ft_line_len_gnl(char *str);
+
+/* get_next_line file functions */
+char	*get_next_line(int fd);
+char	*ft_find_char(int fd, char *str_ac);
+char	*ft_concat_free(char *str_ac, char *temp);
+char	*ft_get_line(char *str_ac);
+char	*ft_clear_memory(char *str_ac);
 
 /* functions added for push_swap */
 long	ft_long_atoi(const char	*str);

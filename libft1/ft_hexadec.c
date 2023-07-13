@@ -6,11 +6,11 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:15:44 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/05/05 13:53:39 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:25:31 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_hexadec(unsigned long long n, char c)
 {

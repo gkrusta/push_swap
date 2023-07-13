@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/12 17:34:18 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:32:43 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,20 +81,20 @@ int	only_numbers(char **argv)
 }
 
 /* checking is numbers are valid */
-int	ft_valid_nb(char **new, int argc, int i)
+int	ft_valid_nb(char **new, int i)
 {
 	if (only_numbers(new) != 1)
 	{
 		/* if (argc == 2) */
-			ft_free_stack(new);
+		ft_free_stack(new);
 		ft_exit(1);
 	}
 	while (new[i + 1]) // the last element would be checked in find_doubles()
 	{
 		if (find_doubles(new, i, ft_atoi(new[i])) != 1)
 		{
-			if (argc == 2)
-				ft_free_stack(new);
+			/* if (argc == 2) */
+			ft_free_stack(new);
 			ft_exit (1);
 		}
 		i++;

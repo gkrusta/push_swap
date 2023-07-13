@@ -6,11 +6,11 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:26:43 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 14:17:10 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:17:53 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../list.h"
 
 void	ft_is_sorted(char *instruction, t_list **a, t_list **b)
 {
@@ -68,10 +68,6 @@ int	main(int argc, char **argv)
 		free (a);
 		return (0);
 	}
-	if (ft_lstsize(a) < 6)
-		ft_small_sort(&a, &b);
-	else
-		ft_big_sort(&a, &b, argc);
 	read_from_output(&a, &b);
 	if (a_is_sorted(a) == 1 && b == NULL)
 		ft_printf("OK\n");

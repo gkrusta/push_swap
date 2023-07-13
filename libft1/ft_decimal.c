@@ -6,11 +6,11 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:51:21 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/05/05 10:39:43 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:25:24 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_decimal(long n)
 {

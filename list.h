@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 14:10:08 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/13 18:19:55 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 /* libraries used */
 # include "libft1/libft.h"
-# include <unistd.h>
-# include <stdio.h>
 # include <limits.h>
 
 /* typedef struct s_stack
@@ -31,7 +29,7 @@ void	ft_locate(t_list *a, int argc, char **argv);
 void	ft_exit(int status);
 void	ft_free_stack(char **argv);
 int		new_argc(char **argv);
-void	delete_last_element(t_list **stack);
+void	ft_small_sort(t_list **a, t_list **b);
 
 /* index */
 void	ft_addindex(t_list **a, int argc, char **argv, int saver);
@@ -69,7 +67,7 @@ void	sort_4(t_list **a, t_list **b, int flag);
 void	sort_5(t_list **a, t_list **b);
 
 /* valid number */
-int		ft_valid_nb(char **new, int argc, int i);
+int		ft_valid_nb(char **new, int i);
 int		only_numbers(char **argv);
 int		a_is_sorted(t_list *lst);
 int		find_doubles(char **argv, int i, int nb);
@@ -87,8 +85,8 @@ void	move_to_a(t_list **a, t_list **b);
 int		max_to_top(t_list *lst_b, int value);
 
 /* to print the stacks */
-void	lst_print_stacks(t_list **lst_a, t_list **lst_b);
+/* void	lst_print_stacks(t_list **lst_a, t_list **lst_b);
 t_list	*lst_print_node(t_list *lst);
-void	print_format(char c);
+void	print_format(char c); */
 
 #endif
