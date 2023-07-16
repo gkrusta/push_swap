@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:01:06 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/16 22:26:56 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/16 22:29:36 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	swap(t_list	*lst)
 	head->next->index = tmp_index;
 }
 
-void	sa(t_list *a)
+void	sa(t_list *a) //enter int print
 {
 	swap(a);
 	ft_printf("sa\n");
