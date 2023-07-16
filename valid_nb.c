@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 17:32:43 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/16 19:48:36 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	ft_valid_nb(char **new, int i)
 	if (only_numbers(new) != 1)
 	{
 		/* if (argc == 2) */
-		ft_free_stack(new);
+		/* ft_free_stack(new); */
 		ft_exit(1);
 	}
 	while (new[i + 1]) // the last element would be checked in find_doubles()
@@ -94,7 +94,7 @@ int	ft_valid_nb(char **new, int i)
 		if (find_doubles(new, i, ft_atoi(new[i])) != 1)
 		{
 			/* if (argc == 2) */
-			ft_free_stack(new);
+			/* ft_free_stack(new); */
 			ft_exit (1);
 		}
 		i++;

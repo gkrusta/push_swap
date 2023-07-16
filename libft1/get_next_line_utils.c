@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 18:50:59 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 17:25:03 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/16 19:23:57 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_strchr_gnl(const char *str, int c)
 	return (0);
 }
 
-int	ft_line_len_gnl(char *str)
+int	ft_line_len(char *str)
 {
 	int	i;
 

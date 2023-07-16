@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:15:07 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 17:25:05 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/16 19:22:34 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_find_char(int fd, char *str_ac)
 		}
 		temp[read_return] = '\0';
 		str_ac = ft_concat_free(str_ac, temp);
-		if (ft_strchr(temp, '\n') == 1)
+		if (ft_strchr_gnl(temp, '\n') == 1)
 			break ;
 	}
 	free(temp);

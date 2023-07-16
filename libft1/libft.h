@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:21:13 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 17:24:19 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/16 19:22:13 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ int		ft_printf(char const *str, ...);
 /* get next line */
 /* utils used */
 int		ft_strchr_gnl(const char *str, int c);
-int		ft_line_len_gnl(char *str);
+int		ft_line_len(char *str);
+int		ft_strchr_gnl(const char *str, int c);
 
 /* get_next_line file functions */
 char	*get_next_line(int fd);

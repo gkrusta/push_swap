@@ -1,13 +1,18 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "lldb",
-      "request": "launch",
-      "args": [],
-      "cwd": "/Users/gkrusta/Desktop/push_swap/libft1",
-      "program": "/Users/gkrusta/Desktop/push_swap/libft1/build/Debug/outDebug"
-    }
-  ]
+    "configurations": [
+        {
+            "name": "C/C++: gcc build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/Users/gkrusta/Desktop/push_swap/checker",
+            "args": ["3", "2", "1"],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: gcc build active file"
+        }
+    ],
+    "version": "2.0.0"
 }
