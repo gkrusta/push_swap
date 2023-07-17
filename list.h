@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/16 19:33:44 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/17 13:08:23 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,26 @@ char	**ft_sort_params(int argc, char **argv, int check);
 
 /* swap instructions */
 void	swap(t_list	*lst);
-void	sa(t_list *a);
-void	sb(t_list *b);
-void	ss(t_list *a, t_list *b);
+void	sa(t_list *a, int print);
+void	sb(t_list *b, int print);
+void	ss(t_list *a, t_list *b, int print);
 
 /* push instructions */
 int		push(t_list **stack_from, t_list **stack_to);
-int		pa(t_list **stack_a, t_list **stack_b);
-int		pb(t_list **stack_a, t_list **stack_b);
+int		pa(t_list **stack_a, t_list **stack_b, int print);
+int		pb(t_list **stack_a, t_list **stack_b, int print);
 
 /* rotate instructions */
 void	rotate(t_list **lst);
-void	ra(t_list **a);
-void	rb(t_list **b);
-void	rr(t_list **a, t_list **b);
+void	ra(t_list **a, int print);
+void	rb(t_list **b, int print);
+void	rr(t_list **a, t_list **b, int print);
 
 /* reverse rotate instructions */
 void	reverse_rotate(t_list **lst);
-void	rra(t_list **a);
-void	rrb(t_list **b);
-void	rrr(t_list **a, t_list **b);
+void	rra(t_list **a, int print);
+void	rrb(t_list **b, int print);
+void	rrr(t_list **a, t_list **b, int print);
 
 /* small sort */
 int		get_min(t_list *a);

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 17:30:03 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/17 13:16:05 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void	move_to_top(t_list **a, t_list **b, int start, int end)
 	{
 		while (dist_top > 0)
 		{
-			ra(a);
+			ra(a, 0);
 			dist_top--;
 		}
 	}
@@ -160,11 +160,11 @@ void	move_to_top(t_list **a, t_list **b, int start, int end)
 	{
 		while (dist_bottom > 0)
 		{
-			rra(a);
+			rra(a, 0);
 			dist_bottom--;
 		}
 	}
-	pb(a, b);
+	pb(a, b, 0);
 }
 
 void	sort_chunks(t_list **a, t_list **b, int start, int end)
@@ -229,7 +229,7 @@ void	move_to_a(t_list **a, t_list **b)
 		{
 			while (dist_top > 0)
 			{
-				rb(b);
+				rb(b, 0);
 				dist_top--;
 			}
 		}
@@ -237,11 +237,11 @@ void	move_to_a(t_list **a, t_list **b)
 		{
 			while (dist_bottom > 0)
 			{
-				rrb(b);
+				rrb(b, 0);
 				dist_bottom--;
 			}
 		}
-		pa(a, b);
+		pa(a, b, 0);
 	}
 }
 

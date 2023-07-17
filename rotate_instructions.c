@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:11:38 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 13:22:49 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/17 17:52:41 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	rotate(t_list **lst)
 	t_list	*current;
 
 	current = *lst;
-	tmp = current->next;
+	/* tmp = current->next; */
+	tmp = *lst;
 	*lst = current->next;
 	current->next = NULL;
 	while (tmp->next != NULL)
@@ -27,21 +28,31 @@ void	rotate(t_list **lst)
 	tmp->next = current;
 }
 
-void	ra(t_list **a)
+void	ra(t_list **a, int print)
 {
 	rotate(a);
-	ft_printf("ra\n");
+/* 	printf("!!!HERE\n\n");
+ */	if (print == 1)
+		return ;
+	else
+		ft_printf("ra\n");
 }
 
-void	rb(t_list **b)
+void	rb(t_list **b, int print)
 {
 	rotate(b);
-	ft_printf("rb\n");
+	if (print == 1)
+		return ;
+	else
+		ft_printf("rb\n");
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_list **a, t_list **b, int print)
 {
 	rotate(a);
 	rotate(b);
-	ft_printf("rr\n");
+	if (print == 1)
+		return ;
+	else
+		ft_printf("rr\n");
 }

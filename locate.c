@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:16:14 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/16 19:45:42 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/17 19:01:05 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	ft_locate(t_list *a, int argc, char **argv)
 	}
 	if (ft_valid_nb(argv, i))
 	{
-		a->value = ft_atoi(argv[i]);
-		i++;
+/* 		a->value = ft_atoi(argv[i]);
+		i++; */
 		while (argv[i])
 		{
 			ft_lstadd_back(&a, ft_lstnew(ft_atoi(argv[i])));
@@ -73,7 +73,7 @@ void	ft_small_sort(t_list **a, t_list **b)
 	if (ft_lstsize(*a) == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
-			sa(*a);
+			sa(*a, 0);
 	}
 	else if (ft_lstsize(*a) == 3)
 		sort_3(a);

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:01:06 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/16 22:29:36 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/17 13:17:32 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,36 @@ void	swap(t_list	*lst)
 	head->next->index = tmp_index;
 }
 
-void	sa(t_list *a) //enter int print
+void	sa(t_list *a, int print) //enter int print
 {
+	if (!a)
+		return ;
 	swap(a);
-	ft_printf("sa\n");
+	if (print == 1)
+		return ;
+	else
+		ft_printf("sa\n");
 }
 
-void	sb(t_list *b)
+void	sb(t_list *b, int print)
 {
+	if (!b)
+		return ;
 	swap(b);
-	ft_printf("sb\n");
+	if (print == 1)
+		return ;
+	else
+		ft_printf("sb\n");
 }
 
-void	ss(t_list *a, t_list *b)
+void	ss(t_list *a, t_list *b, int print)
 {
+	if (!a || !b)
+		return ;
 	swap(a);
 	swap(b);
-	ft_printf("ss\n");
+	if (print == 1)
+		return ;
+	else
+		ft_printf("ss\n");
 }

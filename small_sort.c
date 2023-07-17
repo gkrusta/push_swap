@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort3.c                                            :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:45:20 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/11 12:41:50 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/17 13:15:09 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,19 @@ void	sort_3(t_list **lst_a)
 	min_next = get_next_min(*lst_a, min);
 	if (a->value == min && a->next->value != min_next)
 	{
-		rra(lst_a);
-		sa(*lst_a);
+		rra(lst_a, 0);
+		sa(*lst_a, 0);
 	}
 	else if (a->value == min_next && a->next->value == min)
-		sa(*lst_a);
+		sa(*lst_a, 0);
 	else if (a->value == min_next && a->next->value != min)
-		rra(lst_a);
+		rra(lst_a, 0);
 	else if (a->next->value == min && a->next->next->value == min_next)
-		ra(lst_a);
+		ra(lst_a, 0);
 	else
 	{
-		ra(lst_a);
-		sa(*lst_a);
+		ra(lst_a, 0);
+		sa(*lst_a, 0);
 	}
 }
 
@@ -78,37 +78,37 @@ void	sort_3(t_list **lst_a)
 void	sort_4(t_list **a, t_list **b, int flag)
 {
 	if ((*a)->next->index == flag)
-		sa(*a);
+		sa(*a, 0);
 	else if ((*a)->next->next->index == flag)
 	{
-		ra(a);
-		ra(a);
+		ra(a, 0);
+		ra(a, 0);
 	}
 	else if ((*a)->next->next->next->index == flag)
-		rra(a);
-	pb(a, b);
+		rra(a, 0);
+	pb(a, b, 0);
 	sort_3(a);
-	pa(a, b);
+	pa(a, b, 0);
 }
 
 /* sort 5 elements by pushing the lowest index element to the stack B at first*/
 void	sort_5(t_list **a, t_list **b)
 {
 	if ((*a)->next->index == 1)
-		sa(*a);
+		sa(*a, 0);
 	else if ((*a)->next->next->index == 1)
 	{
-		ra(a);
-		ra(a);
+		ra(a, 0);
+		ra(a, 0);
 	}
 	else if ((*a)->next->next->next->index == 1)
 	{
-		rra(a);
-		rra(a);
+		rra(a, 0);
+		rra(a, 0);
 	}
 	else if ((*a)->next->next->next->next->index == 1)
-		rra(a);
-	pb(a, b);
+		rra(a, 0);
+	pb(a, b, 0);
 	sort_4(a, b, 2);
-	pa(a, b);
+	pa(a, b, 0);
 }

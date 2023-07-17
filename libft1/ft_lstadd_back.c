@@ -6,13 +6,13 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:23:40 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/13 17:26:03 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/17 20:08:52 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+/* void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last_node;
 	if (*lst)
@@ -22,8 +22,21 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	else
 		*lst = new;
-}
+} */
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*tmp;
 
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		tmp = *lst;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
+}
 /* void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
