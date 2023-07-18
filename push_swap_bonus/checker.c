@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:26:43 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 11:48:32 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 17:11:20 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	instruction_read(char *instruction, t_list **a, t_list **b)
 {
-	if (ft_strncmp(instruction, "sa\n", 2) == 0)
+	if (ft_strncmp(instruction, "sa\n", 3) == 0)
 		sa(*a, 1);
 	else if (ft_strncmp(instruction, "sb\n", 3) == 0)
 		sb(*b, 1);
@@ -110,7 +110,6 @@ int	push_swap_success(t_list *a)
 			return (0);
 		(a) = (a)->next;
 	}
-		printf("!!!HERE\n\n");
 	return (1);
 }
 
@@ -123,7 +122,7 @@ int	main(int argc, char **argv)
 		return (0);
 	a = NULL;
 	b = NULL;
-	ft_locate(&a, argc, argv);
+	ft_locate(&a, &argc, argv);
 /* 	if (a_is_sorted(a) == 1)
 	{
 		free (a);
@@ -136,7 +135,7 @@ int	main(int argc, char **argv)
 	else
 		ft_printf("KO\n");
 /* 	ft_free_arguments(&a);
-	ft_free_arguments(&b); */
-	printf("END\n\n");
+	ft_free_arguments(&b);
+	printf("END\n\n"); */
 	return (0);
 }

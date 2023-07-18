@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 18:38:04 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/17 13:07:26 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 14:06:35 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	reverse_rotate(t_list **lst)
 
 	old_head = *lst;
 	new_head = ft_lstlast(old_head);
-/* 	printf("HERE in rr\n\n");
- */	while (old_head)
+	while (old_head)
 	{
 		if (old_head->next->next == NULL)
 		{

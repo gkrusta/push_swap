@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:23:40 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 11:25:31 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 13:49:39 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,19 @@
 	else
 		*lst = new;
 } */
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new_node)
 {
 	t_list	*tmp;
 
 	if (*lst == NULL)
-		*lst = new;
+		*lst = new_node;
 	else
 	{
 		tmp = *lst;
 		while (tmp->next)
-		{
 			tmp = tmp->next;
-			printf("IN WHILE LOOP\n");
-		}
-		printf("exit from loop\n\n");
-		tmp->next = new;
-		new->next = NULL;
+		tmp->next = new_node;
+		new_node->next = NULL;
 	}
 }
 /* void	ft_lstadd_back(t_list **lst, t_list *new)

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:45:20 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 11:36:07 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 14:07:17 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,6 @@ void	sort_4(t_list **a, t_list **b, int flag)
 	}
 	else if ((*a)->next->next->next->index == flag)
 		rra(a, 0);
-	 	t_list *current_a = *a;
-	while (current_a)
-	{
-		printf("before pb: %d\n", current_a->value);
-		current_a = current_a->next;
-	}
 	pb(a, b, 0);
 	sort_3(a);
 	pa(a, b, 0);

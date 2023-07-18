@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/17 13:16:05 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 17:13:10 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,7 +268,7 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 	int	size;
 	int	end;
 
-	if (argc - 1 <= 100)
+	if (argc < 102)
 		chunks = 5;
 	else
 		chunks = 11;

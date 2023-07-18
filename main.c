@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 11:35:12 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 17:03:53 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	//b = ft_lstnew(0);
-	ft_locate(&a, argc, argv);
- 	t_list *current_a = a;
+	ft_locate(&a, &argc, argv);
+/*  	t_list *current_a = a;
 	while (current_a)
 	{
 		printf("before sorting: %d\n", current_a->value);
 		current_a = current_a->next;
-	}
+	} */
 /* 	printf("list size is %d\n\n", ft_lstsize(a));
 	printf("argc %d", argc);
 	t_list *current_a_index = a;
@@ -56,12 +56,12 @@ int	main(int argc, char **argv)
 		printf("after sorting stack B:  %d\n", current_sorted_b->value);
 		current_sorted_b = current_sorted_b->next;
 	} */
-	printf("----\n");
+/* 	printf("----\n");
 	t_list *current_sorted_a = a;
 	while (current_sorted_a)
 	{
 		printf("after sorting stack A:  %d\n", current_sorted_a->value);
 		current_sorted_a = current_sorted_a->next;
-	}
+	} */
 	return (0);
 }
