@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/17 13:08:23 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 11:13:09 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 }				t_stack; */
 
 /* in main */
-void	ft_locate(t_list *a, int argc, char **argv);
+void	ft_locate(t_list **a, int argc, char **argv);
 void	ft_exit(int status);
 void	ft_free_stack(char **argv);
 int		new_argc(char **argv);

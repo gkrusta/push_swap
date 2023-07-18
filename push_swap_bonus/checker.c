@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:26:43 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/17 18:58:20 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 11:48:32 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	instruction_read(char *instruction, t_list **a, t_list **b)
 {
-	if (ft_strncmp(instruction, "sa\n", 3) == 0)
+	if (ft_strncmp(instruction, "sa\n", 2) == 0)
 		sa(*a, 1);
 	else if (ft_strncmp(instruction, "sb\n", 3) == 0)
 		sb(*b, 1);
@@ -122,7 +122,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	a = NULL;
-	ft_locate(a, argc, argv);
+	b = NULL;
+	ft_locate(&a, argc, argv);
 /* 	if (a_is_sorted(a) == 1)
 	{
 		free (a);

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:16:14 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/17 19:01:05 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 11:12:56 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	new_argc(char **argv)
 }
 
 /* filling the stack a */
-void	ft_locate(t_list *a, int argc, char **argv)
+void	ft_locate(t_list **a, int argc, char **argv)
 {
 	int		i;
 	int		saver;
@@ -58,11 +58,11 @@ void	ft_locate(t_list *a, int argc, char **argv)
 		i++; */
 		while (argv[i])
 		{
-			ft_lstadd_back(&a, ft_lstnew(ft_atoi(argv[i])));
+			ft_lstadd_back(a, ft_lstnew(ft_atoi(argv[i])));
 			i++;
 		}
 	}
-	ft_addindex(&a, argc, argv, saver);
+	ft_addindex(a, argc, argv, saver);
 	if (argc == 2)
 		ft_free_stack(argv);
 }

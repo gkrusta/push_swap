@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:11:38 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/17 17:52:41 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/18 11:43:15 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,20 @@ void	rotate(t_list **lst)
 	t_list	*current;
 
 	current = *lst;
-	/* tmp = current->next; */
-	tmp = *lst;
+	tmp = current->next;
+	/* tmp = *lst; */
 	*lst = current->next;
 	current->next = NULL;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
+	printf("current value: %d\n\n", current->value);
 	tmp->next = current;
+	 	t_list *current_a = *lst;
+	while (current_a)
+	{
+		printf("in rotate: %d\n", current_a->value);
+		current_a = current_a->next;
+	}
 }
 
 void	ra(t_list **a, int print)
