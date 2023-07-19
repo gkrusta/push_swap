@@ -6,23 +6,17 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:56:32 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 13:02:34 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 19:03:39 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
-
-void   ft_leaks(void)
-{
-    system("leaks -q push_swap");
-}
 
 int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
 
-	atexit(ft_leaks); 
 	if (argc < 2)
 		return (-1);
 	a = NULL;

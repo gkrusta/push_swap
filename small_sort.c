@@ -6,45 +6,11 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:45:20 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 14:07:17 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 19:04:26 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
-
-/* returns the minimum value */
-int	get_min(t_list *a)
-{
-	t_list	*current;
-	int		min;
-
-	current = a;
-	min = INT_MAX;
-	while (current != NULL)
-	{
-		if (current->value < min)
-			min = current->value;
-		current = current->next;
-	}
-	return (min);
-}
-
-/* returns the next minimum value */
-int	get_next_min(t_list *a, int min)
-{
-	t_list	*current;
-	int		next_min;
-
-	current = a;
-	next_min = INT_MAX;
-	while (current != NULL)
-	{
-		if (current->value > min && current->value < next_min)
-			next_min = current->value;
-		current = current->next;
-	}
-	return (next_min);
-}
 
 /* sorts 3 elements in the stack a */
 void	sort_3(t_list **lst_a)
@@ -111,4 +77,20 @@ void	sort_5(t_list **a, t_list **b)
 	pb(a, b, 0);
 	sort_4(a, b, 2);
 	pa(a, b, 0);
+}
+
+/* depending on how many elements are, chose a sorting algorithm */
+void	ft_small_sort(t_list **a, t_list **b)
+{
+	if (ft_lstsize(*a) == 2)
+	{
+		if ((*a)->value > (*a)->next->value)
+			sa(*a, 0);
+	}
+	else if (ft_lstsize(*a) == 3)
+		sort_3(a);
+	else if (ft_lstsize(*a) == 4)
+		sort_4(a, b, 1);
+	else if (ft_lstsize(*a) == 5)
+		sort_5(a, b);
 }

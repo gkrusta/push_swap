@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 13:02:50 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 17:23:47 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,20 @@ int	a_is_sorted(t_list *lst)
 }
 
 /* checking if the elements consist of digits and 1 possible sign */
-int	only_numbers(char **argv)
+int	only_numbers(char **argv, int i)
 {
 	char	**av;
-	int		i;
 	int		j;
 
 	av = argv;
-	i = 1;
 	while (av[i])
 	{
 		if (overflow(av[i]) == 1)
 			return (0);
 		j = 0;
-		if ((av[i][j] == '+' || av[i][j] == '-') && av[i][j + 1] != '\0')
+		if (argv[i][j] == '\0')
+			return (0);
+		if ((av[i][j] == '+' || av[i][j] == '-') && av[i][j] != '\0')
 			j++;
 		if ((av[i][j] == '+' || av[i][j] == '-') && av[i][j + 1] != '\0')
 			return (0);
@@ -85,10 +85,8 @@ int	only_numbers(char **argv)
 /* checking if numbers are valid */
 int	ft_valid_nb(char **new, int i)
 {
-	if (only_numbers(new) != 1)
+	if (only_numbers(new, i) != 1)
 		ft_exit(1);
-/* 	if(!new[i + 1]) // there is only 1 number
-		exit ; */
 	while (new[i + 1]) // the last element will be checked in find_doubles()
 	{
 		if (find_doubles(new, i, ft_atoi(new[i])) != 1)

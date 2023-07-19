@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:11:38 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 14:07:05 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 19:02:08 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	rotate(t_list **lst)
 
 	current = *lst;
 	tmp = current->next;
-	/* tmp = *lst; */
 	*lst = current->next;
 	current->next = NULL;
 	while (tmp->next != NULL)

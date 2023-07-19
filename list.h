@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 11:56:06 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 19:06:32 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,17 @@
 # include "libft1/libft.h"
 # include <limits.h>
 
-/* typedef struct s_stack
-{
-	int	value;
-	int	index;
-	struct s_stack	*next;
-}				t_stack; */
-
-/* in main */
+/* locate */
 void	ft_locate(t_list **a, int *argc, char **argv);
 void	ft_exit(int status);
-void	ft_free_stack(char **argv);
 int		new_argc(char **argv);
-void	ft_small_sort(t_list **a, t_list **b);
+
 void	ft_free_arguments(t_list **stack);
+void	ft_free_argv(char **str, int str_ind);
 
 /* index */
+int		get_min(t_list *a);
+int		get_next_min(t_list *a, int min);
 void	ft_addindex(t_list **a, int argc, char **argv, int saver);
 void	ft_addindex_str(t_list **a, int argc, char **argv);
 char	**ft_sort_params(int argc, char **argv, int check);
@@ -61,15 +56,14 @@ void	rrb(t_list **b, int print);
 void	rrr(t_list **a, t_list **b, int print);
 
 /* small sort */
-int		get_min(t_list *a);
-int		get_next_min(t_list *a, int min);
+void	ft_small_sort(t_list **a, t_list **b);
 void	sort_3(t_list **lst_a);
 void	sort_4(t_list **a, t_list **b, int flag);
 void	sort_5(t_list **a, t_list **b);
 
 /* valid number */
 int		ft_valid_nb(char **new, int i);
-int		only_numbers(char **argv);
+int		only_numbers(char **argv, int i);
 int		a_is_sorted(t_list *lst);
 int		find_doubles(char **argv, int i, int nb);
 int		overflow(char *str);
@@ -85,11 +79,6 @@ int		size_of_chunk(t_list *a, int chunks);
 void	move_to_a(t_list **a, t_list **b);
 int		max_to_top(t_list *lst_b, int value);
 
-
 void	print_stacks(t_list *a, t_list *b);
-/* to print the stacks */
-/* void	lst_print_stacks(t_list **lst_a, t_list **lst_b);
-t_list	*lst_print_node(t_list *lst);
-void	print_format(char c); */
 
 #endif

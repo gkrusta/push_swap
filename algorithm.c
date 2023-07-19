@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 12:15:47 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 19:12:52 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,73 +28,7 @@ int	get_max(t_list *a)
 	return (max);
 }
 
-/* checks if the top value of stack B is > or < than the top value of stack A */
-/* int	check_top_stack_b(t_list *lst_b, int top_a)
-{
-	t_list	*b;
-	int		smallest;
-	int		biggest;
-
-	b = *lst_b;
-	smallest = b->value;
-	biggest = b->value;
-	while (b->next != NULL)
-	{
-		if (top_a > b->value)
-			biggest = b->value;
-		else if (top_a < b->value)
-			smallest = b->value;
-		b = b->next;
-	}
-	if (top_a > biggest)
-		return (1);
-	else
-		return (-1);
-} */
-
-/* push elements on top of the stack b */
-/* void	push_to_stack_b(t_list **a, t_list **b, int max_in_a)
-{
-	int	max_index;
-	int	min_index;
-
-	max_index = max_index(&b);
-	min_index = min_index(&b);
-} */
-/* 
-int	steps_from_bottom(t_list *lst_a, int start, int end)
-{
-	t_list	*final;
-	t_list	*new;
-	t_list	*curr;
-	int		pos;
-	int		i;
-	int		j;
-
-	final = lst_a;
-	pos = ft_lstsize(lst_a) - 1;
-	i = 0;
-	new = ft_lstlast(final);
-	while (pos < ft_lstsize(lst_a))
-	{
-		printf("steps from bottom:   value now: %d\n", new->value);
-		printf("steps from bottom:   start %d and end %d\n", start, end);
-		j = 0;
-		if (final->value >= start && final->value <= end)
-			return (i);
-		curr = lst_a;
-		while (j < pos)
-		{
-			curr = curr->next;
-			j++;
-		}
-		final = curr;
-		pos--;
-		i++;
-	}
-	return (-1);
-} */
-
+/* calculate how many movements it takes to move the smallest int from bottom */
 int	steps_from_bottom(t_list *lst_a, int start, int end)
 {
 	int		pos;
@@ -123,6 +57,7 @@ int	steps_from_bottom(t_list *lst_a, int start, int end)
 		return (-1);
 }
 
+/* calculate how many movements it takes to move the smallest int from top */
 int	steps_from_top(t_list *lst_a, int start, int end)
 {
 	int		pos;
@@ -245,22 +180,6 @@ void	move_to_a(t_list **a, t_list **b)
 	}
 }
 
-/* static int	max_position(t_stack *stack)
-{
-	int	i;
-	int	aux;
-
-	i = stack->top - 1;
-	aux = stack->top;
-	while (i >= 0)
-	{
-		if (stack->numbers[i] > stack->numbers[aux])
-			aux = i;
-		i--;
-	}
-	return (aux);
-} */
-
 void	ft_big_sort(t_list **a, t_list **b, int argc)
 {
 	int	chunks;
@@ -282,5 +201,4 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 		chunks--;
 	}
 	move_to_a(a, b);
-	/* ft_free_arguments(a); */
 }

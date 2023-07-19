@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:01:06 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/17 13:17:32 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 19:03:11 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,11 @@ void	swap(t_list	*lst)
 
 	head = lst;
 	tmp_value = head->value;
-	tmp_index = head->index;
 	head->value = head->next->value;
-	head->index = head->next->index;
 	head->next->value = tmp_value;
-	head->next->index = tmp_index;
 }
 
-void	sa(t_list *a, int print) //enter int print
+void	sa(t_list *a, int print)
 {
 	if (!a)
 		return ;

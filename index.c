@@ -6,45 +6,45 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:03:10 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 14:01:32 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 19:05:16 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
-/* finds the min index in the stack b */
-/* int	min_index(t_list *lst_b)
+/* returns the minimum value */
+int	get_min(t_list *a)
 {
-	int		i;
-	t_list	*b;
+	t_list	*current;
+	int		min;
 
-	i = INT_MAX;
-	b = *lst_b;
-	while (b)
+	current = a;
+	min = INT_MAX;
+	while (current != NULL)
 	{
-		if (b->index < i)
-			i = b->index;
-		b = b->next;
+		if (current->value < min)
+			min = current->value;
+		current = current->next;
 	}
-	return (i);
-} */
+	return (min);
+}
 
-/* finds the max index in the stack b */
-/* int	max_index(t_list *lst_b)
+/* returns the next minimum value */
+int	get_next_min(t_list *a, int min)
 {
-	int		i;
-	t_list	*b;
+	t_list	*current;
+	int		next_min;
 
-	i = INT_MIN;
-	b = *lst_b;
-	while (b)
+	current = a;
+	next_min = INT_MAX;
+	while (current != NULL)
 	{
-		if (b->index > i)
-			i = b->index;
-		b = b->next;
+		if (current->value > min && current->value < next_min)
+			next_min = current->value;
+		current = current->next;
 	}
-	return (i);
-} */
+	return (next_min);
+}
 
 /* sorts the elements in ascending order */
 char	**ft_sort_params(int argc, char **argv, int check)
@@ -98,7 +98,7 @@ void	ft_addindex_str(t_list **a, int argc, char **argv)
 	}
 }
 
-/* puts index for the elemnts */
+/* add index to the each element in ascending order*/
 void	ft_addindex(t_list **a, int argc, char **argv, int saver)
 {
 	int		x;
@@ -124,30 +124,3 @@ void	ft_addindex(t_list **a, int argc, char **argv, int saver)
 		}
 	}
 }
-
-/* add index to the each element in ascending order*/
-/* void	ft_addindex(t_list **a, int argc, char **argv)
-{
-	int		x;
-	int		check;
-	t_list	*tmp;
-
-	tmp = *a;
-	if (argv[0] == NULL)
-		check = 1;
-	else
-		check = 0;
-	ft_sort_params(argc, argv, check);
-	printf ("addinedx  %d\n\n", tmp->value);
-	while (tmp)
-	{
-		x = check;
-		while (x < argc)
-		{
-			if (ft_atoi(argv[x]) == ((tmp)->value))
-				(tmp)->index = x;
-			x++;
-		}
-		(tmp) = (tmp)->next;
-	}
-} */

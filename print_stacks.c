@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:26:56 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 11:54:32 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 19:01:59 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_stacks(t_list *a, t_list *b)
 	current_sorted_a = a;
 	while (current_a)
 	{
-		printf("before sorting list A: %d    ---    ", current_a->value);
+		printf("before sorting list A: %d  --  ", current_a->value);
 		if (current_a_index)
 		{
 			printf("index : %d\n", current_a_index->index);

@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:26:43 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 12:41:10 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 18:46:52 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@ void	instruction_read(char *instruction, t_list **a, t_list **b)
 	else if (ft_strncmp(instruction, "pb\n", 3) == 0)
 		pb(a, b, 1);
 	else
+	{
 		free (instruction);
+		ft_free_arguments(a);
+		ft_free_arguments(b);
+		ft_exit(1);
+	}
 }
 
 void	read_from_output(t_list **a, t_list **b)
