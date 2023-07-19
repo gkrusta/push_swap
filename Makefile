@@ -6,7 +6,7 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/07/18 11:19:42 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/07/19 11:52:01 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ PUSHSWAP = ar rcs
 
 SRCS =  main.c  locate.c  rotate_instructions.c  rev_rotate_instructions.c \
 		swap_instructions.c  push_instructions.c  index.c \
-		valid_nb.c  small_sort.c  algorithm.c 
+		valid_nb.c  small_sort.c  algorithm.c print_stacks.c
 
 SRCS_BONUS =  push_swap_bonus/checker.c  locate.c  rotate_instructions.c  rev_rotate_instructions.c \
 		swap_instructions.c  push_instructions.c  index.c \
@@ -34,7 +34,7 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g 
 
 RM = rm -f
 

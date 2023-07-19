@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:26:43 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 17:11:20 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 12:41:10 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	instruction_read(char *instruction, t_list **a, t_list **b)
 	else if (ft_strncmp(instruction, "pb\n", 3) == 0)
 		pb(a, b, 1);
 	else
-		printf("NOT FOUND\n\n");
+		free (instruction);
 }
 
 void	read_from_output(t_list **a, t_list **b)
@@ -53,66 +53,6 @@ void	read_from_output(t_list **a, t_list **b)
 	}
 }
 
-/* void	ft_free_arguments(t_list **stack)
-{
-	t_list	*head;
-	t_list	*tmp;
-
-	head = *stack;
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
-	free(stack);
-} */
-
-/* void ft_locate_bonus(t_list **a, int argc, char **argv)
-{
-	int		i;
-	int		saver;
-
-	i = 1;
-	saver = argc;
-    if (argc == 2)
-    {
-        argv = ft_split(argv[1], ' ');
-        argc = new_argc(argv);
-        i = 0;
-    }
-    if (ft_valid_nb(argv, i))
-    {
-        *a = ft_lstnew(ft_atoi(argv[i]));
-        i++;
-        while (argv[i])
-        {
-            ft_lstadd_back(a, ft_lstnew(ft_atoi(argv[i])));
-            i++;
-        }
-    }
-    ft_addindex(a, argc, argv, saver);
-    if (argc == 2)
-        ft_free_stack(argv);
-}
- */
-
-int	push_swap_success(t_list *a)
-{
-/* 	t_list	*head;
-
-	head = *a; */
-	if (!(a))
-		return (-1);
-	while ((a)->next != NULL)
-	{
-		if ((a)->value > (a)->next->value)
-			return (0);
-		(a) = (a)->next;
-	}
-	return (1);
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -123,19 +63,16 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	ft_locate(&a, &argc, argv);
-/* 	if (a_is_sorted(a) == 1)
+	if (a_is_sorted(a) == 1)
 	{
-		free (a);
+		ft_free_arguments(&a);
 		return (0);
-	} */
+	}
 	read_from_output(&a, &b);
-/* printf("!!!HERE\n\n");
- */	if (push_swap_success(a) == 1 && b == NULL)
+	if (a_is_sorted(a) == 1 && b == NULL)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-/* 	ft_free_arguments(&a);
-	ft_free_arguments(&b);
-	printf("END\n\n"); */
+	ft_free_arguments(&a);
 	return (0);
 }

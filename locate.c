@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:16:14 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 17:08:25 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 13:02:42 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_free_stack(char **argv)
 /* is called when recieves 1 as an argument indicating an error */
 void	ft_exit(int status)
 {
-	write (1, "Error >(\n", 9);
+	write (1, "Error\n", 6);
 	exit (status);
 }
 
@@ -59,10 +59,25 @@ void	ft_locate(t_list **a, int *argc, char **argv)
 			ft_lstadd_back(a, ft_lstnew(ft_atoi(argv[i])));
 			i++;
 		}
+		ft_addindex(a, *argc, argv, saver);
 	}
-	ft_addindex(a, *argc, argv, saver);
-	if (*argc == 2)
-		ft_free_stack(argv);
+	/* if (*argc == 2)
+		ft_free_stack(argv); */
+}
+
+void	ft_free_arguments(t_list **stack)
+{
+	t_list	*head;
+	t_list	*tmp;
+
+	head = *stack;
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+	*stack = NULL;
 }
 
 /* depending on how many elements are, chose a sorting algorithm */
@@ -79,4 +94,5 @@ void	ft_small_sort(t_list **a, t_list **b)
 		sort_4(a, b, 1);
 	else if (ft_lstsize(*a) == 5)
 		sort_5(a, b);
-}
+/* 	ft_free_arguments(a);
+ */}

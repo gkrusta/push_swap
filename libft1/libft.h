@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:21:13 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 16:00:11 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 12:24:07 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <fcntl.h>
+# include <stddef.h>
 
 /* functions from <stdlib.h> */
 int		ft_atoi(const char	*str);

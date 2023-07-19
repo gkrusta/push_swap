@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:22:26 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/16 19:48:36 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 13:02:50 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,11 @@ int	only_numbers(char **argv)
 	{
 		if (overflow(av[i]) == 1)
 			return (0);
-		j = 1;
+		j = 0;
 		if ((av[i][j] == '+' || av[i][j] == '-') && av[i][j + 1] != '\0')
 			j++;
+		if ((av[i][j] == '+' || av[i][j] == '-') && av[i][j + 1] != '\0')
+			return (0);
 		while (av[i][j])
 		{
 			if (ft_isdigit(av[i][j]) != 1)
@@ -80,23 +82,17 @@ int	only_numbers(char **argv)
 	return (1);
 }
 
-/* checking is numbers are valid */
+/* checking if numbers are valid */
 int	ft_valid_nb(char **new, int i)
 {
 	if (only_numbers(new) != 1)
-	{
-		/* if (argc == 2) */
-		/* ft_free_stack(new); */
 		ft_exit(1);
-	}
-	while (new[i + 1]) // the last element would be checked in find_doubles()
+/* 	if(!new[i + 1]) // there is only 1 number
+		exit ; */
+	while (new[i + 1]) // the last element will be checked in find_doubles()
 	{
 		if (find_doubles(new, i, ft_atoi(new[i])) != 1)
-		{
-			/* if (argc == 2) */
-			/* ft_free_stack(new); */
 			ft_exit (1);
-		}
 		i++;
 	}
 	return (1);

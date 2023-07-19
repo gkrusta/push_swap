@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 17:13:10 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/19 12:15:47 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,4 +282,5 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 		chunks--;
 	}
 	move_to_a(a, b);
+	/* ft_free_arguments(a); */
 }
