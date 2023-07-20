@@ -6,45 +6,11 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:03:10 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 19:05:16 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 13:57:29 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
-
-/* returns the minimum value */
-int	get_min(t_list *a)
-{
-	t_list	*current;
-	int		min;
-
-	current = a;
-	min = INT_MAX;
-	while (current != NULL)
-	{
-		if (current->value < min)
-			min = current->value;
-		current = current->next;
-	}
-	return (min);
-}
-
-/* returns the next minimum value */
-int	get_next_min(t_list *a, int min)
-{
-	t_list	*current;
-	int		next_min;
-
-	current = a;
-	next_min = INT_MAX;
-	while (current != NULL)
-	{
-		if (current->value > min && current->value < next_min)
-			next_min = current->value;
-		current = current->next;
-	}
-	return (next_min);
-}
 
 /* sorts the elements in ascending order */
 char	**ft_sort_params(int argc, char **argv, int check)

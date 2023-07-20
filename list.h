@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:46:53 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 19:06:32 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 14:22:43 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	ft_free_arguments(t_list **stack);
 void	ft_free_argv(char **str, int str_ind);
 
 /* index */
-int		get_min(t_list *a);
-int		get_next_min(t_list *a, int min);
 void	ft_addindex(t_list **a, int argc, char **argv, int saver);
 void	ft_addindex_str(t_list **a, int argc, char **argv);
 char	**ft_sort_params(int argc, char **argv, int check);
@@ -44,16 +42,16 @@ int		pa(t_list **stack_a, t_list **stack_b, int print);
 int		pb(t_list **stack_a, t_list **stack_b, int print);
 
 /* rotate instructions */
-void	rotate(t_list **lst);
-void	ra(t_list **a, int print);
-void	rb(t_list **b, int print);
-void	rr(t_list **a, t_list **b, int print);
+int		rotate(t_list **lst);
+int		ra(t_list **a, int print);
+int		rb(t_list **b, int print);
+int		rr(t_list **a, t_list **b, int print);
 
 /* reverse rotate instructions */
-void	reverse_rotate(t_list **lst);
-void	rra(t_list **a, int print);
-void	rrb(t_list **b, int print);
-void	rrr(t_list **a, t_list **b, int print);
+int		reverse_rotate(t_list **lst);
+int		rra(t_list **a, int print);
+int		rrb(t_list **b, int print);
+int		rrr(t_list **a, t_list **b, int print);
 
 /* small sort */
 void	ft_small_sort(t_list **a, t_list **b);
@@ -70,15 +68,19 @@ int		overflow(char *str);
 
 /* big sort  */
 void	ft_big_sort(t_list **a, t_list **b, int argc);
-void	sort_chunks(t_list **a, t_list **b, int start, int end);
 void	move_to_top(t_list **a, t_list **b, int start, int end);
 int		steps_from_top(t_list *lst_a, int start, int end);
 int		steps_from_bottom(t_list *lst_a, int start, int end);
-int		get_max(t_list *a);
-int		size_of_chunk(t_list *a, int chunks);
 void	move_to_a(t_list **a, t_list **b);
-int		max_to_top(t_list *lst_b, int value);
 
+/* push_swap_utils */
+int		get_max(t_list *lst);
+int		max_to_top(t_list *lst_b, int value);
+int		size_of_chunk(t_list *a, int chunks);
+int		get_min(t_list *a);
+int		get_next_min(t_list *a, int min);
+
+/* to print the stacks in standart output */
 void	print_stacks(t_list *a, t_list *b);
 
 #endif

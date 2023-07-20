@@ -6,19 +6,21 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 18:38:04 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/18 14:06:35 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 13:47:28 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
 /*  Shift down all elements of stack a by 1 */
-void	reverse_rotate(t_list **lst)
+int	reverse_rotate(t_list **lst)
 {
 	t_list	*old_head;
 	t_list	*new_head;
 
 	old_head = *lst;
+	if (ft_lstsize(old_head) < 2)
+		return (-1);
 	new_head = ft_lstlast(old_head);
 	while (old_head)
 	{
@@ -32,32 +34,32 @@ void	reverse_rotate(t_list **lst)
 	old_head->next = NULL;
 	new_head->next = *lst;
 	*lst = new_head;
+	return (0);
 }
 
-void	rra(t_list **a, int print)
+int	rra(t_list **a, int print)
 {
-	reverse_rotate(a);
-	if (print == 1)
-		return ;
-	else
+	if (reverse_rotate(a) == -1)
+		return (-1);
+	if (print == 0)
 		ft_printf("rra\n");
+	return (0);
 }
 
-void	rrb(t_list **b, int print)
+int	rrb(t_list **b, int print)
 {
-	reverse_rotate(b);
-	if (print == 1)
-		return ;
-	else
+	if (reverse_rotate(b) == -1)
+		return (-1);
+	if (print == 0)
 		ft_printf("rrb\n");
+	return (0);
 }
 
-void	rrr(t_list **a, t_list **b, int print)
+int	rrr(t_list **a, t_list **b, int print)
 {
-	reverse_rotate(a);
-	reverse_rotate(b);
-	if (print == 1)
-		return ;
-	else
+	if (reverse_rotate(a) == -1 && reverse_rotate(b) == -1)
+		return (-1);
+	if (print == 0)
 		ft_printf("rrr\n");
+	return (0);
 }

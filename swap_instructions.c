@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:01:06 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 19:03:11 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 11:00:37 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	swap(t_list	*lst)
 {
 	t_list	*head;
 	int		tmp_value;
-	int		tmp_index;
 
 	head = lst;
 	tmp_value = head->value;

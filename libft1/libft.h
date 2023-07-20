@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:21:13 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 12:24:07 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 14:23:43 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # endif
 
 /* Libraries used */
-
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
@@ -72,8 +71,8 @@ void	ft_putnbr_fd(int n, int fd);
 /* bonus functions */
 typedef struct s_list
 {
-	int	value; // adding these elements for push_swap
-	int	index;
+	int				value;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 

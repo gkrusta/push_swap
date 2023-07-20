@@ -6,7 +6,7 @@
 #    By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 12:25:10 by gkrusta           #+#    #+#              #
-#    Updated: 2023/07/19 11:52:01 by gkrusta          ###   ########.fr        #
+#    Updated: 2023/07/20 14:22:54 by gkrusta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,11 @@ PUSHSWAP = ar rcs
 
 SRCS =  main.c  locate.c  rotate_instructions.c  rev_rotate_instructions.c \
 		swap_instructions.c  push_instructions.c  index.c \
-		valid_nb.c  small_sort.c  algorithm.c print_stacks.c
+		valid_nb.c  small_sort.c  algorithm.c push_swap_utils.c print_stacks.c
 
 SRCS_BONUS =  push_swap_bonus/checker.c  locate.c  rotate_instructions.c  rev_rotate_instructions.c \
 		swap_instructions.c  push_instructions.c  index.c \
-		valid_nb.c  small_sort.c  algorithm.c 
-
-#PATH = push_swap_bonus/
-
-#SRC_WITH_PATH = addprefix($(PATH), $(SRCS_BONUS))
+		valid_nb.c  small_sort.c  algorithm.c push_swap_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -34,7 +30,7 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -g 
+FLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f
 
@@ -51,7 +47,7 @@ bonus: $(NAME_BONUS)
 $(NAME_BONUS): $(OBJS_BONUS)
 	@ echo "\033[32mCompiling Push Swap BONUS...\n"
 	@ make -C libft1/ all
-	$(CC) $(FLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) libft1/libft.a
+	@ $(CC) $(FLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) libft1/libft.a
 	@ echo "\n\t\t\033[32mCompiled!\n"
 
 %.o: %.c

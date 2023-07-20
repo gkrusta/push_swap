@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:16:14 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 19:03:58 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 13:38:20 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	new_argc(char **argv)
 	return (i);
 }
 
+/* free the arguments from the split output in case the elements are pased in " " */
 void	ft_free_argv(char **str, int argc)
 {
 	while (argc-- > 0)
@@ -64,6 +65,7 @@ void	ft_locate(t_list **a, int *argc, char **argv)
 		ft_free_argv(argv, *argc);
 }
 
+/* free the stack and set it its pointer to NULL */
 void	ft_free_arguments(t_list **stack)
 {
 	t_list	*head;

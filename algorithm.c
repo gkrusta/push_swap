@@ -6,27 +6,11 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:47:50 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 19:12:52 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 14:18:52 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
-
-int	get_max(t_list *a)
-{
-	int		max;
-	t_list	*lst_a;
-
-	max = INT_MIN;
-	lst_a = a;
-	while (lst_a != NULL)
-	{
-		if (lst_a->value > max)
-			max = lst_a->value;
-		lst_a = lst_a->next;
-	}
-	return (max);
-}
 
 /* calculate how many movements it takes to move the smallest int from bottom */
 int	steps_from_bottom(t_list *lst_a, int start, int end)
@@ -102,53 +86,7 @@ void	move_to_top(t_list **a, t_list **b, int start, int end)
 	pb(a, b, 0);
 }
 
-void	sort_chunks(t_list **a, t_list **b, int start, int end)
-{
-	while (steps_from_top(*a, start, end) != -1 && steps_from_bottom(*a, start, end) != -1 )
-	{
-		move_to_top(a, b, start, end);
-	}
-}
-
-/* depending on the int value size of the chunks changes */
-int	size_of_chunk(t_list *a, int chunks)
-{
-	int	size;
-	int	max;
-	int	min;
-
-	max = get_max(a);
-	min = get_min(a);
-	if (max < 0 && min < 0)
-		size = (-1) * (max + min);
-	else if (max < 0 && min > 0)
-		size = ((-1) * max + min);
-	else if (max > 0 && min < 0)
-		size = ((-1) * min + max);
-	else
-		size = max - min;
-	while (size % chunks != 0)
-		size++;
-	return (size / chunks);
-}
-
-int	max_to_top(t_list *lst_b, int value)
-{
-	int		pos;
-	t_list	*b;
-
-	pos = 0;
-	b = lst_b;
-	while (b != NULL && pos <= ft_lstsize(lst_b))
-	{
-		if (b->value == value)
-			return (pos);
-		pos++;
-		b = b->next;
-	}
-	return (-1);
-}
-
+/* when stack B has collected all the chunks it pushes back elemnts to the 0stack A */
 void	move_to_a(t_list **a, t_list **b)
 {
 	int	dist_top;
@@ -162,24 +100,19 @@ void	move_to_a(t_list **a, t_list **b)
 		dist_bottom = ft_lstsize(*b) - dist_top;
 		if (dist_top <= dist_bottom)
 		{
-			while (dist_top > 0)
-			{
+			while (dist_top-- > 0)
 				rb(b, 0);
-				dist_top--;
-			}
 		}
 		else
 		{
-			while (dist_bottom > 0)
-			{
+			while (dist_bottom-- > 0)
 				rrb(b, 0);
-				dist_bottom--;
-			}
 		}
 		pa(a, b, 0);
 	}
 }
 
+/* sort the elements when passed more than 6 (included) */
 void	ft_big_sort(t_list **a, t_list **b, int argc)
 {
 	int	chunks;
@@ -196,7 +129,9 @@ void	ft_big_sort(t_list **a, t_list **b, int argc)
 	while (chunks > 0)
 	{
 		end = start + size;
-		sort_chunks(a, b, start, end);
+		while (steps_from_top(*a, start, end) != -1
+			&& steps_from_bottom(*a, start, end) != -1)
+			move_to_top(a, b, start, end);
 		start += size;
 		chunks--;
 	}

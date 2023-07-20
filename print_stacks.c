@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:26:56 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 19:01:59 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 14:25:44 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	print_stacks(t_list *a, t_list *b)
 {
- 	t_list	*current_a;
+	t_list	*current_a;
 	t_list	*current_a_index;
 	t_list	*current_sorted_b;
-	t_list *current_sorted_a;
+	t_list	*current_sorted_a;
 
 	current_a = a;
 	current_a_index = a;
@@ -33,7 +33,7 @@ void	print_stacks(t_list *a, t_list *b)
 		}
 		current_a = current_a->next;
 	}
-	printf("-----\n"); 
+	printf("-----\n");
 	while (current_sorted_b)
 	{
 		printf("after sorting stack B:  %d\n", current_sorted_b->value);

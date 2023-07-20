@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 18:34:17 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/19 16:32:10 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/20 14:20:10 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	**ft_split(char const *s, char c)
 		if (!(str[str_ind]))
 		{
 			ft_free(str, str_ind);
-			return (0); 
+			return (0);
 		}
 		i += ft_len(s, c, i) + 1;
 	}
