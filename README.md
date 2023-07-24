@@ -22,7 +22,9 @@ OR
 - Execute:
 
 `./push_swap $ARG`
+
 `./push_swap $ARG | ./checker $ARG`
+
 `./checker $ARG`
 
 - To count the operations used for sorting:
