@@ -5,9 +5,9 @@ Calculate and display on the standard output the smallest program, made of Push 
 
 - Print *error* or *OK* or *KO* depending on the case. The **`ARG`** variable is used to pass arguments to the **`push_swap`** and **`checker`** executables.
 
-- Throw in the terminal to check:
+- Throw this in the terminal to check:
 
-`ARG="random values"; ./push_swap $ARG | ./checker $ARG`
+`ARG="values of choice"; ./push_swap $ARG | ./checker $ARG`
 
 OR
 
@@ -15,13 +15,15 @@ OR
 
 `export ARG=”values of choice”`
 
-- Check it after with the command:
+- Check it with the command:
 
 `env`
 
 - Execute:
 
+`./push_swap $ARG`
 `./push_swap $ARG | ./checker $ARG`
+`./checker $ARG`
 
 - To count the operations used for sorting:
 
