@@ -6,7 +6,7 @@
 /*   By: gkrusta <gkrusta@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:26:43 by gkrusta           #+#    #+#             */
-/*   Updated: 2023/07/20 14:25:09 by gkrusta          ###   ########.fr       */
+/*   Updated: 2023/07/24 12:36:15 by gkrusta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,6 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	ft_locate(&a, &argc, argv);
-	if (a_is_sorted(a) == 1)
-	{
-		ft_free_arguments(&a);
-		return (0);
-	}
 	read_from_output(&a, &b);
 	if (a_is_sorted(a) == 1 && b == NULL)
 		ft_printf("OK\n");
